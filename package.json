@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5186 --strictPort",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/verify-artifact.mjs",
     "preview": "vite preview --host 127.0.0.1 --port 4186 --strictPort",
     "test": "node --test tests/*.test.mjs",
     "validate:codex": "npm test && npm run model:validate && npm run build && git diff --check",

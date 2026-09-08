@@ -20,7 +20,9 @@ npm run preview
 
 The production artifact is `dist/`. It uses relative asset paths and can be hosted beneath an ENG path (for example `/hex/`) or as its own static site.
 
-Source and authoring files: [aserdargun/hex-aserdargun-com](https://github.com/aserdargun/hex-aserdargun-com). The standalone Azure Free release is prepared after the public GitHub publication. ENG integration is a separate step.
+Live app: [HEX on Azure](https://gray-moss-05c84cb03.6.azurestaticapps.net/).
+
+Source and authoring files: [aserdargun/hex-aserdargun-com](https://github.com/aserdargun/hex-aserdargun-com). GitHub Actions validates each `main` commit and publishes the prebuilt `dist/` directory to Azure Static Web Apps Free. See [deployment details](docs/deployment.md) and [publication runs](https://github.com/aserdargun/hex-aserdargun-com/actions/workflows/deploy-swa-hex-aserdargun-com.yml). ENG integration is a separate step.
 
 ## Explore
 
