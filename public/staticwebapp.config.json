@@ -3,5 +3,11 @@
     ".glb": "model/gltf-binary",
     ".webp": "image/webp",
     ".woff2": "font/woff2"
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation()"
   }
 }
