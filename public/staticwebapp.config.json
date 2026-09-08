@@ -1,0 +1,7 @@
+{
+  "mimeTypes": {
+    ".glb": "model/gltf-binary",
+    ".webp": "image/webp",
+    ".woff2": "font/woff2"
+  }
+}

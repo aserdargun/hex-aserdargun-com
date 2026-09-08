@@ -1,0 +1,36 @@
+{
+  "name": "hex-humanoid-engineering-explorer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5186 --strictPort",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4186 --strictPort",
+    "test": "node --test tests/*.test.mjs",
+    "validate:codex": "npm test && npm run model:validate && npm run build && git diff --check",
+    "model:build": "\"/Applications/Blender.app/Contents/MacOS/Blender\" --background --python scripts/build_hex.py",
+    "model:render": "\"/Applications/Blender.app/Contents/MacOS/Blender\" --background HEX/blender/HEX_Master.blend --python scripts/render_hex.py",
+    "model:validate": "node scripts/validate-glb.mjs"
+  },
+  "dependencies": {
+    "@fontsource/barlow": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@types/three": "^0.180.0",
+    "@vitejs/plugin-react": "^5.0.3",
+    "gltf-validator": "^2.0.0-dev.3.10",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
+  }
+}
