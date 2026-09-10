@@ -1,3 +1,5 @@
+import {LabShell} from '@aserdargun/lab-ui';
+import {manifest,experiments} from '../ils/catalog';
 import { useEffect, useRef } from "react";
 import ComponentBrowser from "./ComponentBrowser";
 import {
@@ -215,6 +217,7 @@ export default function LessonPanel({
             ))}
           </div>
         )}
+        <LabShell manifest={manifest} experiment={experiments.find(e=>e.id===mode)!} locale={lang} />
       </div>
       <div className="lesson-bottom">
         {chapter !== null ? (

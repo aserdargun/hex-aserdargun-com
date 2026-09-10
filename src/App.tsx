@@ -1,6 +1,6 @@
-import {LabShell,LabControlButton} from '@aserdargun/lab-ui';
+import {LabControlButton} from '@aserdargun/lab-ui';
 import '@aserdargun/lab-ui/styles.css';
-import {manifest,experiments,initialRoute} from './ils/catalog';
+import {manifest,initialRoute} from './ils/catalog';
 import {
   lazy,
   Suspense,
@@ -870,7 +870,6 @@ export default function App() {
           />
         </div>
       </main>
-      <LabShell manifest={manifest} experiment={experiments.find(e=>e.id===mode)!} locale={lang} />
       <footer className="footer">
         <button onClick={openInfo}>
           {t(
