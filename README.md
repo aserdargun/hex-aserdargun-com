@@ -71,3 +71,7 @@ Animations are kinematic teaching aids. There is no dynamics simulation, trained
 Playback pauses when the page is hidden, model notes or the learning path open, or reduced motion is enabled. Manual angle/progress controls remain available. Failed GLB requests and lost WebGL contexts show an explicit fallback; retry clears the failed model cache and recreates the scene. Lessons and component selection remain usable throughout.
 
 `dist/release.json` explicitly versions the release schema and educational motion model, and records the source SHA, whether the checkout contained uncommitted changes, and SHA-256 hashes of the entry document, model and hosting configuration. A local build with `sourceDirty: true` does not represent the unchanged committed release.
+
+## ILS v0.1
+
+Canonical ILS 0.1.0 packages are vendored with byte/integrity provenance. The manifest maps ten real exploration modes; the lesson adapter reuses twelve chapters and their existing explanations. `?mode=…&lang=en|tr` opens an authored mode; `?lesson=humanoid-systems` opens the learning path. Unknown `ils` payloads are ignored. Related links preserve conceptual continuity, not robot state. Shared assumptions, evidence and selected controls preserve the existing callbacks and reduced-motion boundaries. Geometry, joint rules, engineering content and kinematic motion remain owned by HEX.

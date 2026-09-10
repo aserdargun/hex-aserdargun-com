@@ -2,10 +2,11 @@ import assert from "node:assert/strict";
 import { MOTION_VERSION } from "../src/core/motion.ts";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync,copyFileSync,readdirSync } from "node:fs";
 import { resolve, sep } from "node:path";
 
 const root = resolve("dist");
+copyFileSync("lab.manifest.json",resolve(root,"lab.manifest.json"));
 const html = readFileSync(resolve(root, "index.html"), "utf8");
 assert.match(html, /HEX/);
 for (const [, asset] of html.matchAll(/(?:src|href)="(\.[^\"]+)"/g)) {
@@ -48,7 +49,7 @@ const release = {
     }).trim(),
   ),
   artifactHashes: Object.fromEntries(
-    ["index.html", "models/HEX_Web.glb", "staticwebapp.config.json"].map(
+    readdirSync(root,{recursive:true,withFileTypes:true}).filter(e=>e.isFile()&&e.name!=="release.json").map(e=>(e.parentPath+"/"+e.name).slice(root.length+1)).sort().map(
       (asset) => [
         asset,
         createHash("sha256")

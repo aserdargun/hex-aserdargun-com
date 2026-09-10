@@ -1,0 +1,23 @@
+[
+  {
+    "id": "concept:embodied-systems",
+    "label": {
+      "en": "Embodied systems",
+      "tr": "Bedensel sistemler"
+    }
+  },
+  {
+    "id": "concept:kinematics",
+    "label": {
+      "en": "Kinematics",
+      "tr": "Kinematik"
+    }
+  },
+  {
+    "id": "concept:feedback-control",
+    "label": {
+      "en": "Feedback control",
+      "tr": "Geri beslemeli kontrol"
+    }
+  }
+]

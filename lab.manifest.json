@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "0.1",
+  "id": "hex",
+  "code": "hex",
+  "name": "Humanoid Engineering Explorer",
+  "canonicalUrl": "https://hex.aserdargun.com/",
+  "type": "interactive-lab",
+  "parentApp": "eng",
+  "status": "live",
+  "tagline": {
+    "en": "A body. A connected system.",
+    "tr": "Bir beden. Bağlı bir sistem."
+  },
+  "guidingQuestion": {
+    "en": "What systems are inside?",
+    "tr": "İçinde hangi sistemler var?"
+  },
+  "concepts": [
+    "concept:embodied-systems",
+    "concept:kinematics",
+    "concept:feedback-control"
+  ],
+  "capabilities": {
+    "play": true,
+    "pause": true,
+    "reset": true,
+    "guidedLesson": true,
+    "experiments": true,
+    "assumptions": true,
+    "evidence": true
+  },
+  "experiments": [
+    {
+      "id": "explore",
+      "title": {
+        "en": "Explore",
+        "tr": "Keşfet"
+      },
+      "route": "/?mode=explore"
+    },
+    {
+      "id": "structure",
+      "title": {
+        "en": "Structure",
+        "tr": "Yapı"
+      },
+      "route": "/?mode=structure"
+    },
+    {
+      "id": "joints",
+      "title": {
+        "en": "Joints",
+        "tr": "Eklemler"
+      },
+      "route": "/?mode=joints"
+    },
+    {
+      "id": "actuation",
+      "title": {
+        "en": "Actuation",
+        "tr": "Tahrik"
+      },
+      "route": "/?mode=actuation"
+    },
+    {
+      "id": "sensors",
+      "title": {
+        "en": "Sensors",
+        "tr": "Sensörler"
+      },
+      "route": "/?mode=sensors"
+    },
+    {
+      "id": "power",
+      "title": {
+        "en": "Power",
+        "tr": "Güç"
+      },
+      "route": "/?mode=power"
+    },
+    {
+      "id": "compute",
+      "title": {
+        "en": "Compute",
+        "tr": "Hesaplama"
+      },
+      "route": "/?mode=compute"
+    },
+    {
+      "id": "perception",
+      "title": {
+        "en": "Perception",
+        "tr": "Algı"
+      },
+      "route": "/?mode=perception"
+    },
+    {
+      "id": "control",
+      "title": {
+        "en": "Control",
+        "tr": "Kontrol"
+      },
+      "route": "/?mode=control"
+    },
+    {
+      "id": "behavior",
+      "title": {
+        "en": "Behavior",
+        "tr": "Davranış"
+      },
+      "route": "/?mode=behavior"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "humanoid-systems",
+      "title": {
+        "en": "From matter to intelligence",
+        "tr": "Maddeden zekâya"
+      },
+      "route": "/?lesson=humanoid-systems"
+    }
+  ],
+  "evidencePolicy": {
+    "summary": {
+      "en": "Kinematic teaching aids and manual inspection. No dynamics, trained policy, measured performance or engineering certification.",
+      "tr": "Kinematik eğitim araçları ve elle inceleme. Dinamik, eğitilmiş politika, ölçülmüş performans veya mühendislik onayı yoktur."
+    },
+    "allowedKinds": [
+      "simulated",
+      "user-input"
+    ]
+  },
+  "assumptions": [
+    {
+      "id": "teaching-geometry",
+      "title": {
+        "en": "Authored teaching geometry",
+        "tr": "Kurgulanmış eğitim geometrisi"
+      },
+      "description": {
+        "en": "The Blender-authored GLB is the visual source of truth. Material families and mechanisms are illustrative; no load limit, alloy grade, torque, ratio or controller frequency is certified.",
+        "tr": "Blender ile hazırlanmış GLB görsel doğruluk kaynağıdır. Malzeme aileleri ve mekanizmalar temsilidir; yük sınırı, alaşım sınıfı, tork, oran veya kontrolcü frekansı onaylanmaz."
+      }
+    },
+    {
+      "id": "kinematic-only",
+      "title": {
+        "en": "Kinematic teaching motion",
+        "tr": "Kinematik eğitim hareketi"
+      },
+      "description": {
+        "en": "Angles, COM/CoP markers and sequences are illustrative. There is no dynamics simulation, inverse-kinematics solver, trained policy or measured robot telemetry.",
+        "tr": "Açılar, COM/CoP işaretleri ve diziler temsilidir. Dinamik simülasyonu, ters kinematik çözücüsü, eğitilmiş politika veya ölçülmüş robot telemetrisi yoktur."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "schemaVersion": "0.1",
+      "id": "motion",
+      "kind": "simulated",
+      "verificationStatus": "not-applicable",
+      "label": {
+        "en": "Kinematic motion and overlays",
+        "tr": "Kinematik hareket ve katmanlar"
+      },
+      "notes": {
+        "en": "Authored motions expose relationships without proving physical stability or performance. Rendered overlays remain observer outputs.",
+        "tr": "Kurgulanmış hareketler fiziksel kararlılık veya performans kanıtlamadan ilişkileri gösterir. Görsel katmanlar gözlem çıktısı olarak kalır."
+      },
+      "assumptionRefs": [
+        "teaching-geometry",
+        "kinematic-only"
+      ]
+    },
+    {
+      "schemaVersion": "0.1",
+      "id": "controls",
+      "kind": "user-input",
+      "verificationStatus": "not-applicable",
+      "label": {
+        "en": "Manual inspection state",
+        "tr": "Elle inceleme durumu"
+      },
+      "notes": {
+        "en": "Mode, joint, angle and exploded stage are learner selections. They do not represent a robot command or a validated engineering configuration.",
+        "tr": "Mod, eklem, açı ve ayrıştırma aşaması öğrenen seçimleridir. Robot komutu veya doğrulanmış mühendislik yapılandırması değildir."
+      },
+      "assumptionRefs": [
+        "teaching-geometry",
+        "kinematic-only"
+      ]
+    }
+  ],
+  "related": {
+    "theory": [
+      {
+        "id": "eng",
+        "label": {
+          "en": "Humanoid engineering · ENG",
+          "tr": "Humanoid mühendisliği · ENG"
+        },
+        "url": "https://eng.aserdargun.com/"
+      }
+    ],
+    "labs": [
+      {
+        "id": "wml",
+        "label": {
+          "en": "WML",
+          "tr": "WML"
+        },
+        "url": "https://wml.aserdargun.com/"
+      },
+      {
+        "id": "pdt",
+        "label": {
+          "en": "PDT",
+          "tr": "PDT"
+        },
+        "url": "https://pdt.aserdargun.com/"
+      }
+    ]
+  }
+}

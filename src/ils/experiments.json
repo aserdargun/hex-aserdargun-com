@@ -1,0 +1,552 @@
+[
+  {
+    "schemaVersion": "0.1",
+    "id": "explore",
+    "title": {
+      "en": "Explore",
+      "tr": "Keşfet"
+    },
+    "guidingQuestion": {
+      "en": "What systems are inside?",
+      "tr": "İçinde hangi sistemler var?"
+    },
+    "description": {
+      "en": "Explore the engineering behind embodied intelligence.",
+      "tr": "Bedensel zekânın ardındaki mühendisliği keşfet."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Explore the engineering behind embodied intelligence.",
+        "tr": "Bedensel zekânın ardındaki mühendisliği keşfet."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "A body. A connected system.",
+          "tr": "Bir beden. Bağlı bir sistem."
+        },
+        "explanation": {
+          "en": "Explore the engineering behind embodied intelligence.",
+          "tr": "Bedensel zekânın ardındaki mühendisliği keşfet."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "explore"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "structure",
+    "title": {
+      "en": "Structure",
+      "tr": "Yapı"
+    },
+    "guidingQuestion": {
+      "en": "What carries the load?",
+      "tr": "Yükü ne taşır?"
+    },
+    "description": {
+      "en": "Follow the frame from the torso to the ground.",
+      "tr": "Gövdeden zemine taşıyıcı yapıyı takip et."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Follow the frame from the torso to the ground.",
+        "tr": "Gövdeden zemine taşıyıcı yapıyı takip et."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "Built to carry the load.",
+          "tr": "Yükü taşımak için."
+        },
+        "explanation": {
+          "en": "Follow the frame from the torso to the ground.",
+          "tr": "Gövdeden zemine taşıyıcı yapıyı takip et."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "structure"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "joints",
+    "title": {
+      "en": "Joints",
+      "tr": "Eklemler"
+    },
+    "guidingQuestion": {
+      "en": "How can rigid links move?",
+      "tr": "Rijit bağlar nasıl hareket eder?"
+    },
+    "description": {
+      "en": "Separate a joint. Discover where movement begins.",
+      "tr": "Bir eklemi ayır. Hareketin nerede başladığını keşfet."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Separate a joint. Discover where movement begins.",
+        "tr": "Bir eklemi ayır. Hareketin nerede başladığını keşfet."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "Rigid links. Fluid motion.",
+          "tr": "Rijit bağlar. Akıcı hareket."
+        },
+        "explanation": {
+          "en": "Separate a joint. Discover where movement begins.",
+          "tr": "Bir eklemi ayır. Hareketin nerede başladığını keşfet."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "joints"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "actuation",
+    "title": {
+      "en": "Actuation",
+      "tr": "Tahrik"
+    },
+    "guidingQuestion": {
+      "en": "Where does motion come from?",
+      "tr": "Hareket nereden gelir?"
+    },
+    "description": {
+      "en": "Every actuator is part of a mechanical chain.",
+      "tr": "Her eyleyici, mekanik bir zincirin parçasıdır."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Every actuator is part of a mechanical chain.",
+        "tr": "Her eyleyici, mekanik bir zincirin parçasıdır."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "Electricity becomes motion.",
+          "tr": "Elektrik harekete dönüşür."
+        },
+        "explanation": {
+          "en": "Every actuator is part of a mechanical chain.",
+          "tr": "Her eyleyici, mekanik bir zincirin parçasıdır."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "actuation"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "sensors",
+    "title": {
+      "en": "Sensors",
+      "tr": "Sensörler"
+    },
+    "guidingQuestion": {
+      "en": "How is the body measured?",
+      "tr": "Beden nasıl ölçülür?"
+    },
+    "description": {
+      "en": "Discover how a robot observes itself and its surroundings.",
+      "tr": "Robotun kendisini ve çevresini nasıl gözlediğini keşfet."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Discover how a robot observes itself and its surroundings.",
+        "tr": "Robotun kendisini ve çevresini nasıl gözlediğini keşfet."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "A body that can measure.",
+          "tr": "Ölçebilen bir beden."
+        },
+        "explanation": {
+          "en": "Discover how a robot observes itself and its surroundings.",
+          "tr": "Robotun kendisini ve çevresini nasıl gözlediğini keşfet."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "sensors"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "power",
+    "title": {
+      "en": "Power",
+      "tr": "Güç"
+    },
+    "guidingQuestion": {
+      "en": "Where does energy go?",
+      "tr": "Enerji nereye gider?"
+    },
+    "description": {
+      "en": "Trace the path from the battery to the body.",
+      "tr": "Bataryadan bedene enerji yolunu takip et."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Trace the path from the battery to the body.",
+        "tr": "Bataryadan bedene enerji yolunu takip et."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "Every movement needs energy.",
+          "tr": "Her hareket enerji ister."
+        },
+        "explanation": {
+          "en": "Trace the path from the battery to the body.",
+          "tr": "Bataryadan bedene enerji yolunu takip et."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "power"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "compute",
+    "title": {
+      "en": "Compute",
+      "tr": "Hesaplama"
+    },
+    "guidingQuestion": {
+      "en": "Which decisions happen where?",
+      "tr": "Hangi karar nerede verilir?"
+    },
+    "description": {
+      "en": "From task reasoning to the motor’s current loop.",
+      "tr": "Görev akıl yürütmesinden motorun akım döngüsüne."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "From task reasoning to the motor’s current loop.",
+        "tr": "Görev akıl yürütmesinden motorun akım döngüsüne."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "One body. Many timescales.",
+          "tr": "Bir beden. Farklı zaman ölçekleri."
+        },
+        "explanation": {
+          "en": "From task reasoning to the motor’s current loop.",
+          "tr": "Görev akıl yürütmesinden motorun akım döngüsüne."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "compute"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "perception",
+    "title": {
+      "en": "Perception",
+      "tr": "Algı"
+    },
+    "guidingQuestion": {
+      "en": "How is a world state estimated?",
+      "tr": "Dünya durumu nasıl kestirilir?"
+    },
+    "description": {
+      "en": "Perception builds an estimate, with uncertainty.",
+      "tr": "Algı, belirsizlik içeren bir tahmin oluşturur."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Perception builds an estimate, with uncertainty.",
+        "tr": "Algı, belirsizlik içeren bir tahmin oluşturur."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "From light to world state.",
+          "tr": "Işıktan dünya durumuna."
+        },
+        "explanation": {
+          "en": "Perception builds an estimate, with uncertainty.",
+          "tr": "Algı, belirsizlik içeren bir tahmin oluşturur."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "perception"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "control",
+    "title": {
+      "en": "Control",
+      "tr": "Kontrol"
+    },
+    "guidingQuestion": {
+      "en": "How does motion become feedback?",
+      "tr": "Hareket nasıl geri beslemeye dönüşür?"
+    },
+    "description": {
+      "en": "Sense. Estimate. Plan. Act. Measure again.",
+      "tr": "Algıla. Kestir. Planla. Harekete geç. Yeniden ölç."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Sense. Estimate. Plan. Act. Measure again.",
+        "tr": "Algıla. Kestir. Planla. Harekete geç. Yeniden ölç."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "Motion is a conversation.",
+          "tr": "Hareket bir etkileşimdir."
+        },
+        "explanation": {
+          "en": "Sense. Estimate. Plan. Act. Measure again.",
+          "tr": "Algıla. Kestir. Planla. Harekete geç. Yeniden ölç."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "control"
+    }
+  },
+  {
+    "schemaVersion": "0.1",
+    "id": "behavior",
+    "title": {
+      "en": "Behavior",
+      "tr": "Davranış"
+    },
+    "guidingQuestion": {
+      "en": "How does feedback support stance?",
+      "tr": "Geri besleme duruşu nasıl destekler?"
+    },
+    "description": {
+      "en": "Connect sensing and control to an embodied action.",
+      "tr": "Ölçüm ve kontrolü bedensel bir eylemle ilişkilendir."
+    },
+    "concepts": [
+      "concept:embodied-systems",
+      "concept:kinematics",
+      "concept:feedback-control"
+    ],
+    "learningObjectives": [
+      {
+        "en": "Connect sensing and control to an embodied action.",
+        "tr": "Ölçüm ve kontrolü bedensel bir eylemle ilişkilendir."
+      }
+    ],
+    "observations": [
+      {
+        "id": "system",
+        "label": {
+          "en": "The whole system moves.",
+          "tr": "Bütün sistem hareket eder."
+        },
+        "explanation": {
+          "en": "Connect sensing and control to an embodied action.",
+          "tr": "Ölçüm ve kontrolü bedensel bir eylemle ilişkilendir."
+        },
+        "evidenceRefs": [
+          "motion",
+          "controls"
+        ]
+      }
+    ],
+    "assumptionRefs": [
+      "teaching-geometry",
+      "kinematic-only"
+    ],
+    "evidenceRefs": [
+      "motion",
+      "controls"
+    ],
+    "config": {
+      "mode": "behavior"
+    }
+  }
+]

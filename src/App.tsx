@@ -1,3 +1,6 @@
+import {LabShell,LabControlButton} from '@aserdargun/lab-ui';
+import '@aserdargun/lab-ui/styles.css';
+import {manifest,experiments,initialRoute} from './ils/catalog';
 import {
   lazy,
   Suspense,
@@ -34,6 +37,7 @@ import InfoDialog from "./components/InfoDialog";
 import SceneBoundary from "./components/SceneBoundary";
 const loadScene = () => import("./scene/RobotScene");
 export default function App() {
+  const [route] = useState(() => initialRoute(location.search));
   const [RobotScene, setRobotScene] = useState(() => lazy(loadScene));
   const [sceneAttempt, setSceneAttempt] = useState(0);
   const [sceneFailed, setSceneFailed] = useState(false);
@@ -42,14 +46,15 @@ export default function App() {
     motionSample.current = value;
   }, []);
   const [lang, setLang] = useState<Lang>(() => {
+    if(route.locale) return route.locale;
     try {
       return localStorage.getItem("hex-lang") === "tr" ? "tr" : "en";
     } catch {
       return "en";
     }
   });
-  const [mode, setMode] = useState<Mode>("explore");
-  const [lesson, setLesson] = useState("explore");
+  const [mode, setMode] = useState<Mode>(route.mode);
+  const [lesson, setLesson] = useState(route.mode === "joints" ? "knee" : route.mode === "behavior" ? "balance" : route.mode);
   const [explode, setExplode] = useState(0);
   const [joint, setJoint] = useState("KNEE_L");
   const [angle, setAngle] = useState(0);
@@ -59,7 +64,7 @@ export default function App() {
   const [reset, setReset] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [info, setInfo] = useState(false);
-  const [guide, setGuide] = useState(false);
+  const [guide, setGuide] = useState(route.lesson);
   const guideWasOpen = useRef(false);
   useEffect(() => {
     if (guide)
@@ -431,7 +436,7 @@ export default function App() {
                 </label>
                 <p>{t(joints.find((j) => j.id === joint)!.axes, lang)}</p>
                 <div className="motion-input">
-                  <button
+                  <LabControlButton action={playing ? "pause" : "play"} capabilities={manifest.capabilities} locale={lang}
                     className="icon-button"
                     aria-label={t(
                       playing
@@ -446,7 +451,7 @@ export default function App() {
                     disabled={reducedMotion || !ready}
                   >
                     {playing ? <Pause size={16} /> : <Play size={16} />}
-                  </button>
+                  </LabControlButton>
                   <input
                     aria-label={t(
                       ["Illustrative joint angle", "Temsili eklem açısı"],
@@ -735,7 +740,8 @@ export default function App() {
                 />
                 <span>{t(["Explode", "Parçala"], lang)}</span>
               </div>
-              <button
+              <LabControlButton action="reset" capabilities={manifest.capabilities} locale={lang}
+                aria-label={t(["Reset view", "Görünümü sıfırla"], lang)}
                 className="reset-button"
                 onClick={() => {
                   setExplode(0);
@@ -749,7 +755,7 @@ export default function App() {
               >
                 <RotateCcw size={15} />
                 <span>{t(["Reset view", "Görünümü sıfırla"], lang)}</span>
-              </button>
+              </LabControlButton>
               {explode > 0 && (
                 <output className="stage-readout">{stageDescription}</output>
               )}
@@ -864,6 +870,7 @@ export default function App() {
           />
         </div>
       </main>
+      <LabShell manifest={manifest} experiment={experiments.find(e=>e.id===mode)!} locale={lang} />
       <footer className="footer">
         <button onClick={openInfo}>
           {t(
