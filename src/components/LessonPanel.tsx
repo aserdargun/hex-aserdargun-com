@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import ComponentBrowser from "./ComponentBrowser";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -10,6 +12,7 @@ import {
   Info,
 } from "lucide-react";
 import {
+  chapters,
   lessons,
   modes,
   sources,
@@ -28,6 +31,8 @@ interface Props {
   onInfo: () => void;
   chapter: number | null;
   onNext: () => void;
+  joint: string;
+  body: string;
 }
 export default function LessonPanel({
   lang,
@@ -39,7 +44,13 @@ export default function LessonPanel({
   onInfo,
   chapter,
   onNext,
+  joint,
+  body,
 }: Props) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [mode, lesson]);
   const l = lessons[lesson] || lessons[mode];
   const isOverview = lesson === "explore" && mode === "explore";
   const idx = modes.findIndex((m) => m.id === mode) + 1;
@@ -48,7 +59,7 @@ export default function LessonPanel({
       className="lesson-panel"
       aria-label={t(["Component lesson", "Bileşen dersi"], lang)}
     >
-      <div className="lesson-scroll">
+      <div className="lesson-scroll" ref={scrollRef}>
         <p className="section-label">
           {String(idx).padStart(2, "0")} /{" "}
           {t(
@@ -58,6 +69,15 @@ export default function LessonPanel({
             lang,
           )}
         </p>
+        <ComponentBrowser
+          key={`${mode}-${joint}-${body}`}
+          lang={lang}
+          mode={mode}
+          joint={joint}
+          body={body}
+          selected={selected}
+          onSelect={onLesson}
+        />
         <div aria-live="polite">
           <h2>{t(l.title, lang)}</h2>
           <p className="lesson-summary">{t(l.summary, lang)}</p>
@@ -200,7 +220,7 @@ export default function LessonPanel({
         {chapter !== null ? (
           <button className="primary-button" onClick={onNext}>
             {t(
-              chapter === 11
+              chapter === chapters.length - 1
                 ? ["Finish exploration", "Keşfi tamamla"]
                 : ["Next chapter", "Sonraki bölüm"],
               lang,

@@ -1787,3 +1787,87 @@ svg {
   display: flex;
   color: var(--accent);
 }
+
+.component-browser {
+  margin-top: 20px;
+  border-block: 1px solid var(--line);
+  padding: 12px 0;
+  font-size: 13px;
+}
+.component-browser summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.component-browser summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.component-browser p {
+  margin-top: 10px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.component-browser label {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+.component-browser input,
+.component-browser select {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 8px;
+}
+.component-browser select {
+  font-family: var(--mono);
+  font-size: 10px;
+}
+.scene-fallback .text-button {
+  min-height: 44px;
+  margin-top: 8px;
+}
+@media (max-width: 380px) {
+  .masthead {
+    height: auto;
+    min-height: 94px;
+    padding-block: 10px;
+  }
+  .top-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    min-height: 32px;
+  }
+  .top-nav button.active:after {
+    bottom: 0;
+  }
+  .header-right {
+    margin-left: auto;
+  }
+}
+@media (pointer: coarse) {
+  .icon-button,
+  .language-switch button,
+  .view-buttons button {
+    min-height: 40px;
+    min-width: 36px;
+  }
+  .viewport-options select,
+  .joint-select select {
+    min-height: 40px;
+  }
+  input[type="range"] {
+    min-height: 32px;
+  }
+  .component-list button,
+  .text-button,
+  .chapter-progress button {
+    min-height: 40px;
+  }
+}

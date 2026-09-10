@@ -12,8 +12,16 @@ export default function InfoDialog({
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
-    if (open) ref.current?.showModal();
-    else ref.current?.close();
+    if (!open) {
+      ref.current?.close();
+      return;
+    }
+    const previousOverflow = document.body.style.overflow;
+    ref.current?.showModal();
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
   }, [open]);
   return (
     <dialog

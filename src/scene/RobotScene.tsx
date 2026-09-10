@@ -1,4 +1,11 @@
-import { Suspense, useEffect, useMemo, useRef } from "react";
+import {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   Canvas,
   useFrame,
@@ -15,6 +22,13 @@ import {
   useGLTF,
 } from "@react-three/drei";
 import * as THREE from "three";
+import {
+  jointAngle,
+  jointPhase,
+  sequenceDuration,
+  sequenceProgress,
+  REACH_DURATION,
+} from "../core/motion";
 import type { OrbitControls as OrbitImpl } from "three-stdlib";
 import { joints, modes, t, type Lang, type Mode } from "../data/content";
 
@@ -50,6 +64,7 @@ type Part = {
   lesson: string;
 };
 const BASE = import.meta.env.BASE_URL;
+export const clearModelCache = () => useGLTF.clear(BASE + "models/HEX_Web.glb");
 function Model(props: SceneProps) {
   const gltf = useGLTF(BASE + "models/HEX_Web.glb");
   const invalidate = useThree((s) => s.invalidate);
@@ -101,6 +116,9 @@ function Model(props: SceneProps) {
     [pivots],
   );
   const clock = useRef(0);
+  const targetPosition = useMemo(() => new THREE.Vector3(), []);
+  const pivotEntries = useMemo(() => Object.entries(pivots), [pivots]);
+  const rootNode = useMemo(() => root.getObjectByName("HEX_ROOT"), [root]);
   const neutralFeet = useMemo(
     () =>
       ["L", "R"].map((side) =>
@@ -148,22 +166,18 @@ function Model(props: SceneProps) {
     invalidate();
   }, [props.mode, props.body, props.selected, props.joint, parts, invalidate]);
   useEffect(() => {
+    clock.current = 0;
+  }, [props.mode, props.behavior, props.joint]);
+  useEffect(() => {
     clock.current =
       props.mode === "behavior"
-        ? (props.angle / 100) * (props.behavior === "reach" ? 2.5 : 5.7)
-        : Math.acos(
-            1 -
-              (2 * props.angle) /
-                (props.joint.includes("ANKLE")
-                  ? 20
-                  : props.joint.includes("HIP")
-                    ? 35
-                    : props.joint.includes("SHOULDER")
-                      ? 60
-                      : 65),
-          ) / 1.6;
+        ? (props.angle / 100) * sequenceDuration(props.behavior)
+        : jointPhase(props.angle, props.joint, clock.current);
     invalidate();
-  }, [props.playing, props.behavior, props.mode, invalidate]);
+  }, [props.angle, props.behavior, props.mode, props.joint, invalidate]);
+  useEffect(() => {
+    invalidate();
+  }, [props.playing, invalidate]);
   useEffect(() => {
     invalidate();
   }, [
@@ -184,7 +198,9 @@ function Model(props: SceneProps) {
           p.mesh.name.includes(props.joint + "_")
             ? props.explode / 8
             : 0;
-      const target = p.rest.clone().addScaledVector(p.delta, amount);
+      const target = targetPosition
+        .copy(p.rest)
+        .addScaledVector(p.delta, amount);
       if (p.mesh.position.distanceToSquared(target) > 1e-8) {
         p.mesh.position.lerp(
           target,
@@ -193,10 +209,7 @@ function Model(props: SceneProps) {
         moving = true;
       }
     }
-    Object.entries(pivots).forEach(([k, o]) =>
-      o.quaternion.copy(initialRot[k]),
-    );
-    const rootNode = root.getObjectByName("HEX_ROOT");
+    pivotEntries.forEach(([k, o]) => o.quaternion.copy(initialRot[k]));
     if (rootNode) {
       rootNode.rotation.set(0, 0, 0);
       rootNode.position.set(0, 0, 0);
@@ -218,18 +231,11 @@ function Model(props: SceneProps) {
     const phase =
       props.playing && !props.reducedMotion
         ? clock.current
-        : (props.angle / 100) * (props.behavior === "reach" ? 2.5 : 5.7);
+        : (props.angle / 100) * sequenceDuration(props.behavior);
     if (props.mode === "joints") {
-      const max = props.joint.includes("ANKLE")
-        ? 20
-        : props.joint.includes("HIP")
-          ? 35
-          : props.joint.includes("SHOULDER")
-            ? 60
-            : 65;
       const a =
         props.playing && !props.reducedMotion
-          ? (1 - Math.cos(phase * 1.6)) * 0.5 * max
+          ? jointAngle(phase, props.joint)
           : props.angle;
       turn(
         props.joint,
@@ -263,23 +269,24 @@ function Model(props: SceneProps) {
         );
         if (rootNode) rootNode.position.addScaledVector(correction, 0.5);
       } else if (props.behavior === "reach") {
-        const a = (1 - Math.cos((Math.min(phase, 2.5) / 2.5) * Math.PI)) * 0.5;
+        const a =
+          (1 -
+            Math.cos(
+              (Math.min(phase, REACH_DURATION) / REACH_DURATION) * Math.PI,
+            )) *
+          0.5;
         turn("SHOULDER_L", "x", -a * 0.95);
         turn("ELBOW_L", "x", -a * 0.42);
         turn("WRIST_L", "x", a * 0.3);
       }
     }
     if (props.mode === "behavior")
-      props.onSample(
-        props.behavior === "reach"
-          ? (Math.min(phase, 2.5) / 2.5) * 100
-          : ((phase % 5.7) / 5.7) * 100,
-      );
+      props.onSample(sequenceProgress(phase, props.behavior));
     if (
       props.mode === "behavior" &&
       props.behavior === "reach" &&
       props.playing &&
-      phase >= 2.5
+      phase >= REACH_DURATION
     )
       props.onComplete();
     if (moving || (props.playing && !props.reducedMotion)) invalidate();
@@ -348,7 +355,7 @@ function Model(props: SceneProps) {
 function MovingCOM({ root }: { root: THREE.Group }) {
   const marker = useRef<THREE.Mesh>(null);
   const ground = useRef<THREE.Mesh>(null);
-  const line = useRef<THREE.Line>(null);
+
   const geom = useMemo(
     () =>
       new THREE.BufferGeometry().setFromPoints([
@@ -356,6 +363,26 @@ function MovingCOM({ root }: { root: THREE.Group }) {
         new THREE.Vector3(0, 0.008, 0),
       ]),
     [],
+  );
+  const projection = useMemo(
+    () =>
+      new THREE.Line(
+        geom,
+        new THREE.LineBasicMaterial({
+          color: "#d94d2e",
+          transparent: true,
+          opacity: 0.6,
+          depthTest: false,
+        }),
+      ),
+    [geom],
+  );
+  useEffect(
+    () => () => {
+      geom.dispose();
+      projection.material.dispose();
+    },
+    [geom, projection],
   );
   useFrame(() => {
     const body = root.getObjectByName("HEX_ROOT");
@@ -374,22 +401,7 @@ function MovingCOM({ root }: { root: THREE.Group }) {
         <sphereGeometry args={[0.022, 16, 12]} />
         <meshBasicMaterial color="#d94d2e" depthTest={false} />
       </mesh>
-      <primitive
-        ref={line}
-        object={useMemo(
-          () =>
-            new THREE.Line(
-              geom,
-              new THREE.LineBasicMaterial({
-                color: "#d94d2e",
-                transparent: true,
-                opacity: 0.6,
-                depthTest: false,
-              }),
-            ),
-          [geom],
-        )}
-      />
+      <primitive object={projection} />
       <mesh
         ref={ground}
         rotation={[-Math.PI / 2, 0, 0]}
@@ -448,7 +460,8 @@ function CameraRig({
   reducedMotion,
 }: SceneProps) {
   const controls = useRef<OrbitImpl>(null);
-  const { camera, invalidate } = useThree();
+  const { camera, invalidate, size } = useThree();
+  const aspect = size.width / size.height;
   const goal = useRef({
     position: new THREE.Vector3(0.95, 1.15, 3.4),
     target: new THREE.Vector3(0, 0.84, 0),
@@ -460,7 +473,7 @@ function CameraRig({
     if (mode === "joints") {
       target.fromArray(joints.find((j) => j.id === joint)!.position);
       target.x += 0.18;
-      dist = 1.55;
+      dist = 1.55 * Math.max(1, 1.05 / aspect);
     }
     if (mode === "perception") {
       target.set(0.03, 0.88, 0.2);
@@ -476,7 +489,16 @@ function CameraRig({
     goal.current = { position: target.clone().add(offset), target };
     transitioning.current = true;
     invalidate();
-  }, [mode, joint, view, reset, explode > 1, reducedMotion, invalidate]);
+  }, [
+    mode,
+    joint,
+    view,
+    reset,
+    explode > 1,
+    reducedMotion,
+    aspect,
+    invalidate,
+  ]);
   useFrame((_, dt) => {
     const c = controls.current;
     if (!c || !transitioning.current) return;
@@ -537,11 +559,15 @@ function TeachingOverlays(p: SceneProps) {
       ]),
     [],
   );
-  useFrame(({ clock }) => {
+  const flowPhase = useRef(0);
+  useEffect(() => {
+    flowPhase.current = 0;
+  }, [p.mode, p.reset]);
+  useFrame((_, dt) => {
+    if (p.playing && !p.reducedMotion)
+      flowPhase.current += Math.min(dt, 0.05) * 0.13;
     if (loopRef.current)
-      loopRef.current.position.copy(
-        path.getPoint((clock.elapsedTime * 0.13) % 1),
-      );
+      loopRef.current.position.copy(path.getPoint(flowPhase.current % 1));
   });
   const wireMode =
     p.mode === "power" || p.mode === "compute" || p.mode === "control";
@@ -805,6 +831,15 @@ function Loading({ lang }: { lang: Lang }) {
   );
 }
 export default function RobotScene(props: SceneProps) {
+  const [contextLost, setContextLost] = useState(false);
+  const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
+  const loseContext = useCallback(() => setContextLost(true), []);
+  useEffect(() => {
+    if (!canvas) return;
+    canvas.addEventListener("webglcontextlost", loseContext);
+    return () => canvas.removeEventListener("webglcontextlost", loseContext);
+  }, [canvas, loseContext]);
+  if (contextLost) throw new Error("WebGL context lost");
   return (
     <Canvas
       shadows
@@ -814,6 +849,7 @@ export default function RobotScene(props: SceneProps) {
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       onCreated={({ gl }) => {
         gl.setClearColor("#f4f5f2", 0);
+        setCanvas(gl.domElement);
       }}
     >
       <fog attach="fog" args={["#f4f5f2", 5, 11]} />

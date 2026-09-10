@@ -707,7 +707,74 @@ lessons.camera = lessons.perception;
 lessons.realtime = lessons.compute;
 lessons["motor-control"] = lessons.compute;
 lessons.behavior = lessons.balance;
-lessons.wrist = lessons.shoulder;
+lessons.wrist = {
+  title: ["Orient the hand.", "Eli yönlendir."],
+  summary: [
+    "The wrist changes hand orientation downstream of the elbow. HEX represents pitch and roll with two serial axes.",
+    "El bileği, dirseğin devamında elin yönelimini değiştirir. HEX, yunuslama ve yuvarlanmayı iki seri eksenle temsil eder.",
+  ],
+  why: [
+    "Hand position and orientation are different parts of a manipulation task. Wrist rotation adjusts the tool or grasp direction within the arm's reachable configurations.",
+    "Elin konumu ve yönelimi, bir manipülasyon görevinin farklı parçalarıdır. Bilek dönmesi, kolun erişebildiği konfigürasyonlarda araç veya kavrama yönünü ayarlar.",
+  ],
+  chain: [
+    ["Forearm", "Ön kol"],
+    ["Wrist roll", "Bilek yuvarlanması"],
+    ["Wrist pitch", "Bilek yunuslaması"],
+    ["Hand orientation", "El yönelimi"],
+  ],
+  receives: ["Wrist angle targets", "Bilek açısı hedefleri"],
+  produces: [
+    "Hand orientation relative to the forearm",
+    "Ön kola göre el yönelimi",
+  ],
+  observes: ["Joint encoders", "Eklem enkoderleri"],
+  influences: ["Grasp and tool alignment", "Kavrama ve araç hizalaması"],
+  note: [
+    "The model shows serial rotational axes. No grasp forces or manipulation policy are simulated.",
+    "Model, seri dönme eksenlerini gösterir. Kavrama kuvvetleri veya manipülasyon politikası simüle edilmez.",
+  ],
+};
+lessons.data_harness = {
+  title: [
+    "Connect measurements and commands.",
+    "Ölçümleri ve komutları bağla.",
+  ],
+  summary: [
+    "The data harness connects sensors, distributed drives and computing modules. It carries information used by the feedback loop.",
+    "Veri kablo demeti; sensörleri, dağıtık sürücüleri ve hesaplama modüllerini bağlar. Geri besleme döngüsünde kullanılan bilgiyi taşır.",
+  ],
+  why: [
+    "Feedback depends on measurements reaching controllers and commands reaching drives. Communication timing and faults influence the control system; HEX illustrates only the connections.",
+    "Geri besleme, ölçümlerin kontrolcülere ve komutların sürücülere ulaşmasına bağlıdır. İletişim zamanlaması ve hataları kontrol sistemini etkiler; HEX yalnızca bağlantıları gösterir.",
+  ],
+  chain: [
+    ["Sensors", "Sensörler"],
+    ["Data harness", "Veri kablo demeti"],
+    ["Controllers", "Kontrolcüler"],
+    ["Commands and status", "Komutlar ve durum"],
+  ],
+  receives: [
+    "Measurements, commands and status messages",
+    "Ölçümler, komutlar ve durum mesajları",
+  ],
+  produces: [
+    "Information transferred between modules",
+    "Modüller arasında aktarılan bilgi",
+  ],
+  observes: [
+    "Communication diagnostics in a real implementation",
+    "Gerçek uygulamada iletişim tanılaması",
+  ],
+  influences: [
+    "Availability and timing of feedback",
+    "Geri beslemenin erişilebilirliği ve zamanlaması",
+  ],
+  note: [
+    "Routes are schematic. No bus protocol, bandwidth or communication latency is specified.",
+    "Yollar şematiktir. Veri yolu protokolü, bant genişliği veya iletişim gecikmesi belirtilmez.",
+  ],
+};
 lessons.neck = lessons.perception;
 lessons.bearings = {
   ...lessons.structure,

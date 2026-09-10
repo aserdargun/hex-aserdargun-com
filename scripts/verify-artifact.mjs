@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { MOTION_VERSION } from "../src/core/motion.ts";
+import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve, sep } from "node:path";
@@ -11,7 +13,11 @@ for (const [, asset] of html.matchAll(/(?:src|href)="(\.[^\"]+)"/g)) {
   assert.ok(file.startsWith(root + sep), `Asset outside dist: ${asset}`);
   assert.ok(existsSync(file), `Missing built asset: ${asset}`);
 }
-for (const asset of ["models/HEX_Web.glb", "renders/hero.webp"]) {
+for (const asset of [
+  "models/HEX_Web.glb",
+  "renders/hero.webp",
+  "staticwebapp.config.json",
+]) {
   assert.ok(
     readFileSync(resolve(root, asset)).equals(
       readFileSync(resolve("public", asset)),
@@ -31,9 +37,26 @@ const releaseSha = execFileSync("git", ["rev-parse", "HEAD"], {
 assert.match(releaseSha, /^[a-f0-9]{40}$/);
 if (process.env.GITHUB_SHA) assert.equal(releaseSha, process.env.GITHUB_SHA);
 const release = {
+  schemaVersion: 1,
+  motionVersion: MOTION_VERSION,
   app: "hex-aserdargun-com",
   releaseSha,
   builtAt: new Date().toISOString(),
+  sourceDirty: Boolean(
+    execFileSync("git", ["status", "--porcelain", "--untracked-files=normal"], {
+      encoding: "utf8",
+    }).trim(),
+  ),
+  artifactHashes: Object.fromEntries(
+    ["index.html", "models/HEX_Web.glb", "staticwebapp.config.json"].map(
+      (asset) => [
+        asset,
+        createHash("sha256")
+          .update(readFileSync(resolve(root, asset)))
+          .digest("hex"),
+      ],
+    ),
+  ),
   workflowRun: process.env.GITHUB_RUN_ID
     ? `https://github.com/aserdargun/hex-aserdargun-com/actions/runs/${process.env.GITHUB_RUN_ID}`
     : null,

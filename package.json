@@ -8,10 +8,11 @@
     "build": "tsc -b && vite build && node scripts/verify-artifact.mjs",
     "preview": "vite preview --host 127.0.0.1 --port 4186 --strictPort",
     "test": "node --test tests/*.test.mjs",
-    "validate:codex": "npm test && npm run model:validate && npm run build && git diff --check",
+    "validate:codex": "node scripts/component-catalogue.mjs --check && npm test && npm run model:validate && npm run build && git diff --check",
     "model:build": "\"/Applications/Blender.app/Contents/MacOS/Blender\" --background --python scripts/build_hex.py",
     "model:render": "\"/Applications/Blender.app/Contents/MacOS/Blender\" --background HEX/blender/HEX_Master.blend --python scripts/render_hex.py",
-    "model:validate": "node scripts/validate-glb.mjs"
+    "model:validate": "node scripts/validate-glb.mjs",
+    "model:catalogue": "node scripts/component-catalogue.mjs"
   },
   "dependencies": {
     "@fontsource/barlow": "^5.3.0",

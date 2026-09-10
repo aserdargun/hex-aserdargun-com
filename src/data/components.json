@@ -1,0 +1,3188 @@
+[
+  {
+    "name": "HEX_ACT_ANKLE_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_ACT_ANKLE_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_ACT_ANKLE_ROLL_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_ACT_ANKLE_ROLL_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_ACT_ELBOW_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_ACT_ELBOW_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_ACT_HIP_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_HIP_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_HIP_ROLL_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_HIP_ROLL_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_HIP_YAW_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_HIP_YAW_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_KNEE_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_ACT_KNEE_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_ACT_NECK_PITCH",
+    "category": "actuators",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_ACT_NECK_YAW",
+    "category": "actuators",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_ACT_SHOULDER_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_SHOULDER_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_SHOULDER_ROLL_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_SHOULDER_ROLL_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_SHOULDER_YAW_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_SHOULDER_YAW_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_WAIST",
+    "category": "actuators",
+    "region": "torso",
+    "lesson": "joints"
+  },
+  {
+    "name": "HEX_ACT_WINDING_ANKLE_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_ACT_WINDING_ANKLE_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_ACT_WINDING_ANKLE_ROLL_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_ACT_WINDING_ANKLE_ROLL_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_ACT_WINDING_ELBOW_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_ACT_WINDING_ELBOW_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_ACT_WINDING_HIP_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_WINDING_HIP_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_WINDING_HIP_ROLL_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_WINDING_HIP_ROLL_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_WINDING_HIP_YAW_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_WINDING_HIP_YAW_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_ACT_WINDING_KNEE_L",
+    "category": "actuators",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_ACT_WINDING_KNEE_R",
+    "category": "actuators",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_ACT_WINDING_NECK_PITCH",
+    "category": "actuators",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_ACT_WINDING_NECK_YAW",
+    "category": "actuators",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_ACT_WINDING_SHOULDER_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_WINDING_SHOULDER_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_WINDING_SHOULDER_ROLL_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_WINDING_SHOULDER_ROLL_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_WINDING_SHOULDER_YAW_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_WINDING_SHOULDER_YAW_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_ACT_WINDING_WAIST",
+    "category": "actuators",
+    "region": "torso",
+    "lesson": "joints"
+  },
+  {
+    "name": "HEX_ACT_WINDING_WRIST_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_ACT_WINDING_WRIST_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_ACT_WINDING_WRIST_ROLL_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_ACT_WINDING_WRIST_ROLL_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_ACT_WRIST_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_ACT_WRIST_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_ACT_WRIST_ROLL_L",
+    "category": "actuators",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_ACT_WRIST_ROLL_R",
+    "category": "actuators",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BATTERY_LOCK_-1",
+    "category": "power",
+    "region": "pelvis",
+    "lesson": "battery"
+  },
+  {
+    "name": "HEX_BATTERY_LOCK_1",
+    "category": "power",
+    "region": "pelvis",
+    "lesson": "battery"
+  },
+  {
+    "name": "HEX_BATTERY_MAIN",
+    "category": "power",
+    "region": "pelvis",
+    "lesson": "battery"
+  },
+  {
+    "name": "HEX_BEARING_IN_ANKLE_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_BEARING_IN_ANKLE_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_BEARING_IN_ANKLE_ROLL_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_BEARING_IN_ANKLE_ROLL_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_BEARING_IN_ELBOW_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_BEARING_IN_ELBOW_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_BEARING_IN_HIP_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_IN_HIP_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_IN_HIP_ROLL_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_IN_HIP_ROLL_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_IN_HIP_YAW_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_IN_HIP_YAW_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_IN_KNEE_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_BEARING_IN_KNEE_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_BEARING_IN_NECK_PITCH",
+    "category": "bearings",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_BEARING_IN_NECK_YAW",
+    "category": "bearings",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_BEARING_IN_SHOULDER_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_IN_SHOULDER_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_IN_SHOULDER_ROLL_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_IN_SHOULDER_ROLL_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_IN_SHOULDER_YAW_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_IN_SHOULDER_YAW_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_IN_WAIST",
+    "category": "bearings",
+    "region": "torso",
+    "lesson": "joints"
+  },
+  {
+    "name": "HEX_BEARING_IN_WRIST_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BEARING_IN_WRIST_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BEARING_IN_WRIST_ROLL_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BEARING_IN_WRIST_ROLL_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BEARING_OUT_ANKLE_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_BEARING_OUT_ANKLE_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_BEARING_OUT_ANKLE_ROLL_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_BEARING_OUT_ANKLE_ROLL_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_BEARING_OUT_ELBOW_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_BEARING_OUT_ELBOW_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_BEARING_OUT_HIP_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_OUT_HIP_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_OUT_HIP_ROLL_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_OUT_HIP_ROLL_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_OUT_HIP_YAW_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_OUT_HIP_YAW_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_BEARING_OUT_KNEE_L",
+    "category": "bearings",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_BEARING_OUT_KNEE_R",
+    "category": "bearings",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_BEARING_OUT_NECK_PITCH",
+    "category": "bearings",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_BEARING_OUT_NECK_YAW",
+    "category": "bearings",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_BEARING_OUT_SHOULDER_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_OUT_SHOULDER_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_OUT_SHOULDER_ROLL_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_OUT_SHOULDER_ROLL_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_OUT_SHOULDER_YAW_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_OUT_SHOULDER_YAW_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_BEARING_OUT_WAIST",
+    "category": "bearings",
+    "region": "torso",
+    "lesson": "joints"
+  },
+  {
+    "name": "HEX_BEARING_OUT_WRIST_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BEARING_OUT_WRIST_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BEARING_OUT_WRIST_ROLL_L",
+    "category": "bearings",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BEARING_OUT_WRIST_ROLL_R",
+    "category": "bearings",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_BMS_MAIN",
+    "category": "power",
+    "region": "pelvis",
+    "lesson": "battery"
+  },
+  {
+    "name": "HEX_CAMERA_FACE",
+    "category": "structure",
+    "region": "head",
+    "lesson": "camera"
+  },
+  {
+    "name": "HEX_CAMERA_LENS_RING_L",
+    "category": "sensors",
+    "region": "head",
+    "lesson": "camera"
+  },
+  {
+    "name": "HEX_CAMERA_LENS_RING_R",
+    "category": "sensors",
+    "region": "head",
+    "lesson": "camera"
+  },
+  {
+    "name": "HEX_CHEST_BOLT_-0.134_1.25",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_CHEST_BOLT_-0.134_1.33",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_CHEST_BOLT_0.134_1.25",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_CHEST_BOLT_0.134_1.33",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_CHEST_ID",
+    "category": "body",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_CHEST_SERVICE_INSERT",
+    "category": "body",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_0",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_1",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_2",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_3",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_4",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_5",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_6",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_7",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_8",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_HEATSINK_9",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_COMPUTE_MAIN",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "compute"
+  },
+  {
+    "name": "HEX_CTRL_CHIP_FOREARM_L",
+    "category": "compute",
+    "region": "arm-l",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_CHIP_FOREARM_R",
+    "category": "compute",
+    "region": "arm-r",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_CHIP_SHIN_L",
+    "category": "compute",
+    "region": "leg-l",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_CHIP_SHIN_R",
+    "category": "compute",
+    "region": "leg-r",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_CHIP_THIGH_L",
+    "category": "compute",
+    "region": "leg-l",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_CHIP_THIGH_R",
+    "category": "compute",
+    "region": "leg-r",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_CHIP_UPPER_ARM_L",
+    "category": "compute",
+    "region": "arm-l",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_CHIP_UPPER_ARM_R",
+    "category": "compute",
+    "region": "arm-r",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_MOTOR_FOREARM_L",
+    "category": "compute",
+    "region": "arm-l",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_MOTOR_FOREARM_R",
+    "category": "compute",
+    "region": "arm-r",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_MOTOR_SHIN_L",
+    "category": "compute",
+    "region": "leg-l",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_MOTOR_SHIN_R",
+    "category": "compute",
+    "region": "leg-r",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_MOTOR_THIGH_L",
+    "category": "compute",
+    "region": "leg-l",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_MOTOR_THIGH_R",
+    "category": "compute",
+    "region": "leg-r",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_MOTOR_UPPER_ARM_L",
+    "category": "compute",
+    "region": "arm-l",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_MOTOR_UPPER_ARM_R",
+    "category": "compute",
+    "region": "arm-r",
+    "lesson": "motor-control"
+  },
+  {
+    "name": "HEX_CTRL_REALTIME",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "realtime"
+  },
+  {
+    "name": "HEX_CTRL_REALTIME_CHIP",
+    "category": "compute",
+    "region": "torso",
+    "lesson": "realtime"
+  },
+  {
+    "name": "HEX_DATA_FOREARM_L",
+    "category": "data_harness",
+    "region": "arm-l",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_FOREARM_R",
+    "category": "data_harness",
+    "region": "arm-r",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_SHIN_L",
+    "category": "data_harness",
+    "region": "leg-l",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_SHIN_R",
+    "category": "data_harness",
+    "region": "leg-r",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_THIGH_L",
+    "category": "data_harness",
+    "region": "leg-l",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_THIGH_R",
+    "category": "data_harness",
+    "region": "leg-r",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_TRUNK_-1",
+    "category": "data_harness",
+    "region": "torso",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_TRUNK_1",
+    "category": "data_harness",
+    "region": "torso",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_UPPER_ARM_L",
+    "category": "data_harness",
+    "region": "arm-l",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DATA_UPPER_ARM_R",
+    "category": "data_harness",
+    "region": "arm-r",
+    "lesson": "data_harness"
+  },
+  {
+    "name": "HEX_DC_CONVERTER",
+    "category": "power",
+    "region": "torso",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_ENCODER_ANKLE_L",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_ANKLE_R",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_ANKLE_ROLL_L",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_ANKLE_ROLL_R",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_ELBOW_L",
+    "category": "sensors",
+    "region": "arm-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_ELBOW_R",
+    "category": "sensors",
+    "region": "arm-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_HIP_L",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_HIP_R",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_HIP_ROLL_L",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_HIP_ROLL_R",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_HIP_YAW_L",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_HIP_YAW_R",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_KNEE_L",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_KNEE_R",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_NECK_PITCH",
+    "category": "sensors",
+    "region": "head",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_NECK_YAW",
+    "category": "sensors",
+    "region": "head",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_SHOULDER_L",
+    "category": "sensors",
+    "region": "arm-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_SHOULDER_R",
+    "category": "sensors",
+    "region": "arm-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_SHOULDER_ROLL_L",
+    "category": "sensors",
+    "region": "arm-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_SHOULDER_ROLL_R",
+    "category": "sensors",
+    "region": "arm-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_SHOULDER_YAW_L",
+    "category": "sensors",
+    "region": "arm-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_SHOULDER_YAW_R",
+    "category": "sensors",
+    "region": "arm-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_WAIST",
+    "category": "sensors",
+    "region": "torso",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_WRIST_L",
+    "category": "sensors",
+    "region": "arm-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_WRIST_R",
+    "category": "sensors",
+    "region": "arm-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_WRIST_ROLL_L",
+    "category": "sensors",
+    "region": "arm-l",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_ENCODER_WRIST_ROLL_R",
+    "category": "sensors",
+    "region": "arm-r",
+    "lesson": "encoder"
+  },
+  {
+    "name": "HEX_FASTENER_ANKLE_L_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_ANKLE_L_2",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_ANKLE_L_3",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_ANKLE_L_4",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_ANKLE_R_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_ANKLE_R_2",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_ANKLE_R_3",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_ANKLE_R_4",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_L_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_L_2",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_L_3",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_L_4",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_R_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_R_2",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_R_3",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_R_4",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_ROLL_L_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_ROLL_L_2",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_ROLL_L_3",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_ROLL_L_4",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_ROLL_R_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_ROLL_R_2",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_ROLL_R_3",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_ROLL_R_4",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_YAW_L_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_YAW_L_2",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_YAW_L_3",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_YAW_L_4",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_YAW_R_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_YAW_R_2",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_YAW_R_3",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_HIP_YAW_R_4",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_KNEE_L_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_KNEE_L_2",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_KNEE_L_3",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_KNEE_L_4",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_KNEE_R_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_KNEE_R_2",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_KNEE_R_3",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_KNEE_R_4",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_L_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_L_2",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_L_3",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_L_4",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_R_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_R_2",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_R_3",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_R_4",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_ROLL_L_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_ROLL_L_2",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_ROLL_L_3",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_ROLL_L_4",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_ROLL_R_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_ROLL_R_2",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_ROLL_R_3",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_ROLL_R_4",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_YAW_L_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_YAW_L_2",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_YAW_L_3",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_YAW_L_4",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_YAW_R_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_YAW_R_2",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_YAW_R_3",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_SHOULDER_YAW_R_4",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_WAIST_1",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_WAIST_2",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_WAIST_3",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FASTENER_WAIST_4",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_FOOT_SENSOR_L_1",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_SENSOR_L_2",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_SENSOR_L_3",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_SENSOR_L_4",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_SENSOR_R_1",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_SENSOR_R_2",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_SENSOR_R_3",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_SENSOR_R_4",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_TOE_COVER_L",
+    "category": "body",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FOOT_TOE_COVER_R",
+    "category": "body",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FT_ANKLE_L",
+    "category": "sensors",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_FT_ANKLE_R",
+    "category": "sensors",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_GEAR_ANKLE_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_GEAR_ANKLE_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_GEAR_ANKLE_ROLL_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_GEAR_ANKLE_ROLL_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_GEAR_CARRIER_ELBOW_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_GEAR_CARRIER_KNEE_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_GEAR_CARRIER_KNEE_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_GEAR_ELBOW_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_GEAR_HIP_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_GEAR_HIP_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_GEAR_HIP_ROLL_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_GEAR_HIP_ROLL_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_GEAR_HIP_YAW_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_GEAR_HIP_YAW_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_GEAR_NECK_PITCH",
+    "category": "transmissions",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_GEAR_NECK_YAW",
+    "category": "transmissions",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_ELBOW_L_1",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_ELBOW_L_2",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_ELBOW_L_3",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_KNEE_L_1",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_KNEE_L_2",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_KNEE_L_3",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_KNEE_R_1",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_KNEE_R_2",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_PLANET_KNEE_R_3",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_RING_ELBOW_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_RING_KNEE_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_RING_KNEE_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_SHOULDER_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_GEAR_SHOULDER_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_GEAR_SHOULDER_ROLL_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_GEAR_SHOULDER_ROLL_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_GEAR_SHOULDER_YAW_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_GEAR_SHOULDER_YAW_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_GEAR_SUN_ELBOW_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_SUN_KNEE_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_SUN_KNEE_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "transmission"
+  },
+  {
+    "name": "HEX_GEAR_WAIST",
+    "category": "transmissions",
+    "region": "torso",
+    "lesson": "joints"
+  },
+  {
+    "name": "HEX_GEAR_WRIST_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GEAR_WRIST_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GEAR_WRIST_ROLL_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GEAR_WRIST_ROLL_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_L_0_A",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_L_0_B",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_L_1_A",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_L_1_B",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_L_2_A",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_L_2_B",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_R_0_A",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_R_0_B",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_R_1_A",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_R_1_B",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_R_2_A",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_R_2_B",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_THUMB_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_GRIPPER_THUMB_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_FOREARM_L_0_-1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_FOREARM_L_0_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_FOREARM_L_1_-1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_FOREARM_L_1_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_FOREARM_R_0_-1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_FOREARM_R_0_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_FOREARM_R_1_-1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_FOREARM_R_1_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_SHIN_L_0_-1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_SHIN_L_0_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_SHIN_L_1_-1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_SHIN_L_1_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_SHIN_R_0_-1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_SHIN_R_0_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_SHIN_R_1_-1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_SHIN_R_1_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_THIGH_L_0_-1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_THIGH_L_0_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_THIGH_L_1_-1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_THIGH_L_1_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_THIGH_R_0_-1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_THIGH_R_0_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_THIGH_R_1_-1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_THIGH_R_1_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_UPPER_ARM_L_0_-1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_UPPER_ARM_L_0_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_UPPER_ARM_L_1_-1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_UPPER_ARM_L_1_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_UPPER_ARM_R_0_-1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_UPPER_ARM_R_0_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_UPPER_ARM_R_1_-1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_LINK_FASTENER_UPPER_ARM_R_1_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_OUTPUT_ANKLE_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_OUTPUT_ANKLE_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_OUTPUT_ANKLE_ROLL_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_OUTPUT_ANKLE_ROLL_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_OUTPUT_ELBOW_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_OUTPUT_ELBOW_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_OUTPUT_HIP_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_OUTPUT_HIP_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_OUTPUT_HIP_ROLL_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_OUTPUT_HIP_ROLL_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_OUTPUT_HIP_YAW_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_OUTPUT_HIP_YAW_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_OUTPUT_KNEE_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_OUTPUT_KNEE_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_OUTPUT_NECK_PITCH",
+    "category": "structure",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_OUTPUT_NECK_YAW",
+    "category": "structure",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_OUTPUT_SHOULDER_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_OUTPUT_SHOULDER_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_OUTPUT_SHOULDER_ROLL_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_OUTPUT_SHOULDER_ROLL_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_OUTPUT_SHOULDER_YAW_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_OUTPUT_SHOULDER_YAW_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_OUTPUT_WAIST",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "joints"
+  },
+  {
+    "name": "HEX_OUTPUT_WRIST_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_OUTPUT_WRIST_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_OUTPUT_WRIST_ROLL_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_OUTPUT_WRIST_ROLL_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_POWER_DISTRIBUTION",
+    "category": "power",
+    "region": "torso",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_FOREARM_L",
+    "category": "power",
+    "region": "arm-l",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_FOREARM_R",
+    "category": "power",
+    "region": "arm-r",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_SHIN_L",
+    "category": "power",
+    "region": "leg-l",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_SHIN_R",
+    "category": "power",
+    "region": "leg-r",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_THIGH_L",
+    "category": "power",
+    "region": "leg-l",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_THIGH_R",
+    "category": "power",
+    "region": "leg-r",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_TRUNK_-1",
+    "category": "power",
+    "region": "torso",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_TRUNK_1",
+    "category": "power",
+    "region": "torso",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_UPPER_ARM_L",
+    "category": "power",
+    "region": "arm-l",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_POWER_UPPER_ARM_R",
+    "category": "power",
+    "region": "arm-r",
+    "lesson": "power"
+  },
+  {
+    "name": "HEX_SENSOR_CAM_L",
+    "category": "sensors",
+    "region": "head",
+    "lesson": "camera"
+  },
+  {
+    "name": "HEX_SENSOR_CAM_LENS_L",
+    "category": "sensors",
+    "region": "head",
+    "lesson": "camera"
+  },
+  {
+    "name": "HEX_SENSOR_CAM_LENS_R",
+    "category": "sensors",
+    "region": "head",
+    "lesson": "camera"
+  },
+  {
+    "name": "HEX_SENSOR_CAM_R",
+    "category": "sensors",
+    "region": "head",
+    "lesson": "camera"
+  },
+  {
+    "name": "HEX_SENSOR_IMU_TORSO",
+    "category": "sensors",
+    "region": "torso",
+    "lesson": "imu"
+  },
+  {
+    "name": "HEX_SHAFT_ANKLE_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_SHAFT_ANKLE_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_SHAFT_ANKLE_ROLL_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_SHAFT_ANKLE_ROLL_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_SHAFT_ELBOW_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_SHAFT_ELBOW_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_SHAFT_HIP_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_SHAFT_HIP_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_SHAFT_HIP_ROLL_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_SHAFT_HIP_ROLL_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_SHAFT_HIP_YAW_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_SHAFT_HIP_YAW_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_SHAFT_KNEE_L",
+    "category": "transmissions",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_SHAFT_KNEE_R",
+    "category": "transmissions",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_SHAFT_NECK_PITCH",
+    "category": "transmissions",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_SHAFT_NECK_YAW",
+    "category": "transmissions",
+    "region": "head",
+    "lesson": "neck"
+  },
+  {
+    "name": "HEX_SHAFT_SHOULDER_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_SHAFT_SHOULDER_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_SHAFT_SHOULDER_ROLL_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_SHAFT_SHOULDER_ROLL_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_SHAFT_SHOULDER_YAW_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_SHAFT_SHOULDER_YAW_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_SHAFT_WAIST",
+    "category": "transmissions",
+    "region": "torso",
+    "lesson": "joints"
+  },
+  {
+    "name": "HEX_SHAFT_WRIST_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_SHAFT_WRIST_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_SHAFT_WRIST_ROLL_L",
+    "category": "transmissions",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_SHAFT_WRIST_ROLL_R",
+    "category": "transmissions",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_SHELL_ACCENT_FOREARM_L",
+    "category": "body",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_ACCENT_FOREARM_R",
+    "category": "body",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_ACCENT_SHIN_L",
+    "category": "body",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_ACCENT_SHIN_R",
+    "category": "body",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_ACCENT_THIGH_L",
+    "category": "body",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_ACCENT_THIGH_R",
+    "category": "body",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_ACCENT_UPPER_ARM_L",
+    "category": "body",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_ACCENT_UPPER_ARM_R",
+    "category": "body",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_CHEST",
+    "category": "body",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_FOREARM_L",
+    "category": "body",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_FOREARM_R",
+    "category": "body",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_HEAD",
+    "category": "body",
+    "region": "head",
+    "lesson": "camera"
+  },
+  {
+    "name": "HEX_SHELL_PELVIS",
+    "category": "body",
+    "region": "pelvis",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_SHIN_L",
+    "category": "body",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_SHIN_R",
+    "category": "body",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_THIGH_L",
+    "category": "body",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_THIGH_R",
+    "category": "body",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_UPPER_ARM_L",
+    "category": "body",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SHELL_UPPER_ARM_R",
+    "category": "body",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_SOLE_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_TREAD_L_-0.055",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_TREAD_L_-0.106",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_TREAD_L_0",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_TREAD_L_0.055",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_TREAD_R_-0.055",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_TREAD_R_-0.106",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_TREAD_R_0",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_SOLE_TREAD_R_0.055",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOOT_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOOT_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "foot"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_L_BRACE",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_L_MOUNT_0",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_L_MOUNT_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_L_RAIL_-1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_L_RAIL_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_R_BRACE",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_R_MOUNT_0",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_R_MOUNT_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_R_RAIL_-1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_FOREARM_R_RAIL_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_HEAD",
+    "category": "structure",
+    "region": "head",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_PALM_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_STRUCTURE_PALM_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_STRUCTURE_PELVIS",
+    "category": "structure",
+    "region": "pelvis",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_RIB_-1",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_RIB_1",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_L_BRACE",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_L_MOUNT_0",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_L_MOUNT_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_L_RAIL_-1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_L_RAIL_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_R_BRACE",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_R_MOUNT_0",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_R_MOUNT_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_R_RAIL_-1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SHIN_R_RAIL_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SPINE_-1",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_SPINE_1",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_L_BRACE",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_L_MOUNT_0",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_L_MOUNT_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_L_RAIL_-1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_L_RAIL_1",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_R_BRACE",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_R_MOUNT_0",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_R_MOUNT_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_R_RAIL_-1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_THIGH_R_RAIL_1",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_TORSO_BASE",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_TORSO_CROSS",
+    "category": "structure",
+    "region": "torso",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_L_BRACE",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_L_MOUNT_0",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_L_MOUNT_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_L_RAIL_-1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_L_RAIL_1",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_R_BRACE",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_R_MOUNT_0",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_R_MOUNT_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_R_RAIL_-1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_UPPER_ARM_R_RAIL_1",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "structure"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_ANKLE_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_ANKLE_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_ANKLE_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_ANKLE_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "ankle"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_ELBOW_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_ELBOW_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_HIP_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_HIP_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_KNEE_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_KNEE_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_SHOULDER_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_SHOULDER_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_WRIST_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_BRIDGE_WRIST_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_ELBOW_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_ELBOW_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "elbow"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_HIP_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_HIP_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "hip"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_KNEE_L",
+    "category": "structure",
+    "region": "leg-l",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_KNEE_R",
+    "category": "structure",
+    "region": "leg-r",
+    "lesson": "knee"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_SHOULDER_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_SHOULDER_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "shoulder"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_WRIST_L",
+    "category": "structure",
+    "region": "arm-l",
+    "lesson": "wrist"
+  },
+  {
+    "name": "HEX_STRUCTURE_YOKE_WRIST_R",
+    "category": "structure",
+    "region": "arm-r",
+    "lesson": "wrist"
+  }
+]

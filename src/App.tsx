@@ -28,11 +28,15 @@ import {
   type Lang,
   type Mode,
 } from "./data/content";
+import { jointLimit } from "./core/motion";
 import LessonPanel from "./components/LessonPanel";
 import InfoDialog from "./components/InfoDialog";
 import SceneBoundary from "./components/SceneBoundary";
-const RobotScene = lazy(() => import("./scene/RobotScene"));
+const loadScene = () => import("./scene/RobotScene");
 export default function App() {
+  const [RobotScene, setRobotScene] = useState(() => lazy(loadScene));
+  const [sceneAttempt, setSceneAttempt] = useState(0);
+  const [sceneFailed, setSceneFailed] = useState(false);
   const motionSample = useRef(0);
   const onSample = useCallback((value: number) => {
     motionSample.current = value;
@@ -56,6 +60,14 @@ export default function App() {
   const [selected, setSelected] = useState<string | null>(null);
   const [info, setInfo] = useState(false);
   const [guide, setGuide] = useState(false);
+  const guideWasOpen = useRef(false);
+  useEffect(() => {
+    if (guide)
+      document.getElementById("learning-title")?.focus({ preventScroll: true });
+    else if (guideWasOpen.current)
+      document.getElementById("explorer-title")?.focus({ preventScroll: true });
+    guideWasOpen.current = guide;
+  }, [guide]);
   const [chapter, setChapter] = useState<number | null>(null);
   const [ready, setReady] = useState(false);
   const [perception, setPerception] = useState(0);
@@ -67,10 +79,16 @@ export default function App() {
   );
   useEffect(() => {
     const mq = matchMedia("(prefers-reduced-motion: reduce)");
-    const fn = () => setReducedMotion(mq.matches);
+    const fn = () => {
+      setReducedMotion(mq.matches);
+      if (mq.matches) {
+        setPlaying(false);
+        if (playing) setAngle(motionSample.current);
+      }
+    };
     mq.addEventListener("change", fn);
     return () => mq.removeEventListener("change", fn);
-  }, []);
+  }, [playing]);
   useEffect(() => {
     document.documentElement.lang = lang;
     try {
@@ -79,7 +97,42 @@ export default function App() {
       /* Browser may disable local storage. */
     }
   }, [lang]);
+  const pauseMotion = useCallback(() => {
+    if (playing) setAngle(motionSample.current);
+    setPlaying(false);
+  }, [playing]);
+  useEffect(() => {
+    const pauseWhenHidden = () => {
+      if (document.hidden) pauseMotion();
+    };
+    document.addEventListener("visibilitychange", pauseWhenHidden);
+    return () =>
+      document.removeEventListener("visibilitychange", pauseWhenHidden);
+  }, [pauseMotion]);
+  const openInfo = () => {
+    pauseMotion();
+    setInfo(true);
+  };
+  const retryScene = async () => {
+    setReady(false);
+    try {
+      const scene = await loadScene();
+      scene.clearModelCache();
+      setRobotScene(() => lazy(loadScene));
+      setSceneAttempt((n) => n + 1);
+      setSceneFailed(false);
+    } catch {
+      setSceneFailed(true);
+    }
+  };
+  const sceneError = useCallback(() => {
+    setSceneFailed(true);
+    setReady(false);
+    setPlaying(false);
+  }, []);
   const changeMode = (m: Mode) => {
+    setReset((r) => r + 1);
+    motionSample.current = 0;
     if (innerWidth <= 900)
       requestAnimationFrame(() =>
         window.scrollTo({
@@ -109,6 +162,8 @@ export default function App() {
     setSelected("HEX_ACT_" + id);
     setAngle(0);
     setPlaying(false);
+    motionSample.current = 0;
+    setBody("all");
   };
   const openKnee = () => {
     changeMode("joints");
@@ -121,7 +176,7 @@ export default function App() {
     changeMode("behavior");
     setBehavior("reach");
     setLesson("reach");
-    setPlaying(!reducedMotion);
+    setPlaying(!reducedMotion && ready);
   };
   const loadChapter = (i: number) => {
     const ch = chapters[i];
@@ -132,7 +187,7 @@ export default function App() {
     if (ch.lesson === "transmission") setExplode(8);
   };
   const nextChapter = () => {
-    if (chapter === 11) {
+    if (chapter === chapters.length - 1) {
       setChapter(null);
       changeMode("explore");
     } else loadChapter((chapter ?? -1) + 1);
@@ -143,14 +198,12 @@ export default function App() {
     setAngle(100);
   }, []);
   const current = modes.find((m) => m.id === mode)!;
-  const maxAngle = joint.includes("ANKLE")
-    ? 20
-    : joint.includes("HIP")
-      ? 35
-      : joint.includes("SHOULDER")
-        ? 60
-        : 65;
+  const maxAngle = jointLimit(joint);
   const stage = Math.round(explode);
+  const stageDescription =
+    mode === "joints"
+      ? `${t(["Joint separation", "Eklem ayrıştırma"], lang)} · ${Math.round((explode / 8) * 100)}%`
+      : `${stage}/8 · ${t(stages[stage], lang)}`;
   return (
     <div className="app-shell">
       <a className="skip-link" href="#lesson">
@@ -166,7 +219,7 @@ export default function App() {
             setChapter(null);
             setGuide(false);
           }}
-          aria-label="HEX home"
+          aria-label={t(["HEX home", "HEX ana sayfa"], lang)}
         >
           <strong>HEX</strong>
           <span>Humanoid Engineering Explorer</span>
@@ -177,15 +230,17 @@ export default function App() {
         >
           <button
             className={!guide ? "active" : ""}
+            aria-pressed={!guide}
             onClick={() => setGuide(false)}
           >
             {t(["Explorer", "Keşif"], lang)}
           </button>
           <button
             className={guide ? "active" : ""}
+            aria-pressed={guide}
             onClick={() => {
+              pauseMotion();
               setGuide(true);
-              setPlaying(false);
             }}
           >
             {t(["Learning path", "Öğrenme yolu"], lang)}
@@ -196,7 +251,11 @@ export default function App() {
             ENG
             <ArrowUpRight size={17} />
           </a>
-          <div className="language-switch" aria-label="Language">
+          <div
+            className="language-switch"
+            role="group"
+            aria-label={t(["Language", "Dil"], lang)}
+          >
             <button aria-pressed={lang === "en"} onClick={() => setLang("en")}>
               EN
             </button>
@@ -250,7 +309,9 @@ export default function App() {
         >
           <div className="explorer-content" inert={guide}>
             <div className="viewport-heading">
-              <h1 id="explorer-title">{t(current.title, lang)}</h1>
+              <h1 id="explorer-title" tabIndex={-1}>
+                {t(current.title, lang)}
+              </h1>
               <p>{t(current.subtitle, lang)}</p>
             </div>
             <div
@@ -286,7 +347,12 @@ export default function App() {
                 lang,
               )}
             >
-              <SceneBoundary lang={lang}>
+              <SceneBoundary
+                key={sceneAttempt}
+                lang={lang}
+                onError={sceneError}
+                onRetry={retryScene}
+              >
                 <Suspense
                   fallback={
                     <div className="scene-loading">
@@ -374,10 +440,10 @@ export default function App() {
                       lang,
                     )}
                     onClick={() => {
-                      if (playing) setAngle(Math.round(motionSample.current));
+                      if (playing) setAngle(motionSample.current);
                       setPlaying(!playing);
                     }}
-                    disabled={reducedMotion}
+                    disabled={reducedMotion || !ready}
                   >
                     {playing ? <Pause size={16} /> : <Play size={16} />}
                   </button>
@@ -396,7 +462,9 @@ export default function App() {
                     }}
                   />
                   <output>
-                    {playing ? t(["Motion", "Hareket"], lang) : angle + "°"}
+                    {playing
+                      ? t(["Motion", "Hareket"], lang)
+                      : Math.round(angle) + "°"}
                   </output>
                 </div>
                 <small>
@@ -411,6 +479,7 @@ export default function App() {
                     <button
                       key={b}
                       className={behavior === b ? "active" : ""}
+                      aria-pressed={behavior === b}
                       onClick={() => {
                         setBehavior(b);
                         setLesson(
@@ -438,9 +507,9 @@ export default function App() {
                 </div>
                 <button
                   className="text-button"
-                  disabled={behavior === "stand" || reducedMotion}
+                  disabled={behavior === "stand" || reducedMotion || !ready}
                   onClick={() => {
-                    if (playing) setAngle(Math.round(motionSample.current));
+                    if (playing) setAngle(motionSample.current);
                     else if (
                       mode === "behavior" &&
                       behavior === "reach" &&
@@ -475,7 +544,7 @@ export default function App() {
                         setAngle(Number(e.target.value));
                       }}
                     />
-                    <output>{playing ? "▶" : angle + "%"}</output>
+                    <output>{playing ? "▶" : Math.round(angle) + "%"}</output>
                   </label>
                 )}
                 <small>
@@ -516,6 +585,7 @@ export default function App() {
                     <button
                       key={i}
                       className={perception === i ? "active" : ""}
+                      aria-pressed={perception === i}
                       onClick={() => setPerception(i)}
                     >
                       <span>0{i + 1}</span>
@@ -558,7 +628,7 @@ export default function App() {
               <div className="flow-controls">
                 <button
                   className="text-button"
-                  disabled={reducedMotion}
+                  disabled={reducedMotion || !ready}
                   onClick={() => setPlaying(!playing)}
                 >
                   {playing ? <Pause size={15} /> : <Play size={15} />}{" "}
@@ -629,7 +699,7 @@ export default function App() {
                   <ChevronLeft size={16} />
                 </button>
                 <span>
-                  {String(chapter + 1).padStart(2, "0")} / 12 —{" "}
+                  {String(chapter + 1).padStart(2, "0")} / {chapters.length} —{" "}
                   {t(chapters[chapter].title, lang)}
                 </span>
                 <button
@@ -651,7 +721,7 @@ export default function App() {
                     ["Exploded view stage", "Patlatılmış görünüm aşaması"],
                     lang,
                   )}
-                  aria-valuetext={t(stages[stage], lang)}
+                  aria-valuetext={stageDescription}
                   type="range"
                   min={0}
                   max={8}
@@ -681,17 +751,15 @@ export default function App() {
                 <span>{t(["Reset view", "Görünümü sıfırla"], lang)}</span>
               </button>
               {explode > 0 && (
-                <output className="stage-readout">
-                  {stage}/8 · {t(stages[stage], lang)}
-                </output>
+                <output className="stage-readout">{stageDescription}</output>
               )}
             </div>
             <div className="viewport-hint">
               {reducedMotion
                 ? t(
                     [
-                      "Reduced motion · use the angle slider",
-                      "Azaltılmış hareket · açı kaydırıcısını kullan",
+                      "Reduced motion · explore with manual controls",
+                      "Azaltılmış hareket · elle kontrollerle keşfet",
                     ],
                     lang,
                   )
@@ -704,19 +772,32 @@ export default function App() {
                   )}
             </div>
             <span className="sr-only" role="status">
-              {ready
-                ? t(["3D model ready", "3B model hazır"], lang)
-                : t(["Loading model", "Model yükleniyor"], lang)}
+              {sceneFailed
+                ? t(
+                    [
+                      "3D unavailable; lessons remain accessible",
+                      "3B kullanılamıyor; derslere erişilebilir",
+                    ],
+                    lang,
+                  )
+                : ready
+                  ? t(["3D model ready", "3B model hazır"], lang)
+                  : t(["Loading model", "Model yükleniyor"], lang)}
             </span>
           </div>
           {guide && (
-            <div className="learning-path">
+            <div
+              className="learning-path"
+              onKeyDown={(event) => {
+                if (event.key === "Escape") setGuide(false);
+              }}
+            >
               <div className="learning-header">
                 <div>
                   <p className="section-label">
-                    HEX / 12 {t(["CHAPTERS", "BÖLÜM"], lang)}
+                    HEX / {chapters.length} {t(["CHAPTERS", "BÖLÜM"], lang)}
                   </p>
-                  <h1 id="learning-title">
+                  <h1 id="learning-title" tabIndex={-1}>
                     {t(
                       ["From matter to intelligence.", "Maddeden zekâya."],
                       lang,
@@ -762,7 +843,12 @@ export default function App() {
             </div>
           )}
         </section>
-        <div id="lesson" className="lesson-container" tabIndex={-1}>
+        <div
+          id="lesson"
+          className="lesson-container"
+          tabIndex={-1}
+          inert={guide}
+        >
           <LessonPanel
             lang={lang}
             mode={mode}
@@ -770,14 +856,16 @@ export default function App() {
             selected={selected}
             onKnee={openKnee}
             onLesson={selectLesson}
-            onInfo={() => setInfo(true)}
+            onInfo={openInfo}
             chapter={chapter}
             onNext={nextChapter}
+            joint={joint}
+            body={body}
           />
         </div>
       </main>
       <footer className="footer">
-        <button onClick={() => setInfo(true)}>
+        <button onClick={openInfo}>
           {t(
             [
               "An educational research platform.",
