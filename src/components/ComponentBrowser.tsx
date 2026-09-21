@@ -61,6 +61,7 @@ export default function ComponentBrowser({
       <label>
         <span>{t(["Model component", "Model bileşeni"], lang)}</span>
         <select
+          aria-label={t(["Model component", "Model bileşeni"], lang)}
           value={
             matches.some((part) => part.name === selected) ? selected! : ""
           }

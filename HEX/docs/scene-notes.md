@@ -49,7 +49,7 @@ The body COM and ground CoP overlays are clearly labeled illustrative. They do n
 
 ## ENG integration
 
-The build is a self-contained teaching object with relative assets and links back to ENG. For a later ENG release, mount `dist` at the chosen route or integrate the React scene and content modules. `HEX_ANCHOR_*` nodes are ready for annotations. Preserve the public engineering curriculum relationship to WFM (world representations), ITL (digital twins) and EVL (evaluation). Standalone publication is documented in the repository README; a live ENG integration is a separate release.
+The build is a self-contained teaching object with relative assets and links back to ENG. ENG links to the standalone HEX explorer from its Platform section. Embedding `dist` at an ENG route or integrating the React modules would be a separate implementation. `HEX_ANCHOR_*` nodes are ready for annotations. Preserve the public engineering curriculum relationship to WFM (world representations), ITL (digital twins) and EVL (evaluation). Standalone publication is documented in the repository README. The aserdargun.com portfolio places HEX under ENG in Physical AI; navigation does not transfer robot state.
 
 ## Expansion path
 

@@ -22,12 +22,12 @@ The production artifact is `dist/`. It uses relative asset paths and can be host
 
 Live app: [hex.aserdargun.com](https://hex.aserdargun.com/).
 
-Source and authoring files: [aserdargun/hex-aserdargun-com](https://github.com/aserdargun/hex-aserdargun-com). GitHub Actions validates each `main` commit and publishes the prebuilt `dist/` directory to Azure Static Web Apps Free. See [deployment details](docs/deployment.md) and [publication runs](https://github.com/aserdargun/hex-aserdargun-com/actions/workflows/deploy-swa-hex-aserdargun-com.yml). ENG integration is a separate step.
+Source and authoring files: [aserdargun/hex-aserdargun-com](https://github.com/aserdargun/hex-aserdargun-com). GitHub Actions validates each `main` commit and publishes the prebuilt `dist/` directory to Azure Static Web Apps Free. See [deployment details](docs/deployment.md) and [publication runs](https://github.com/aserdargun/hex-aserdargun-com/actions/workflows/deploy-swa-hex-aserdargun-com.yml). HEX is the interactive companion linked from ENG’s Platform section; ENG’s English curriculum remains the parent learning path. A link is not an embedded runtime or shared robot state.
 
 ## Explore
 
 - A searchable, keyboard-accessible catalogue of all 531 GLB components, available even if 3D cannot load.
-- Ten engineering modes with actual material isolation, transparent context and component picking.
+- Ten engineering modes with actual material isolation, transparent context and component picking; each includes a bilingual local inspection task and an explicit observation boundary.
 - Progressive assembled-to-exploded slider, camera bookmarks and body regions.
 - Shoulder, elbow, hip, knee and ankle anatomy with joint-axis overlays, manual angle controls and animation.
 - Sensor classes, named components, power/data paths, and source-linked lessons.
@@ -70,8 +70,16 @@ Animations are kinematic teaching aids. There is no dynamics simulation, trained
 
 Playback pauses when the page is hidden, model notes or the learning path open, or reduced motion is enabled. Manual angle/progress controls remain available. Failed GLB requests and lost WebGL contexts show an explicit fallback; retry clears the failed model cache and recreates the scene. Lessons and component selection remain usable throughout.
 
-`dist/release.json` explicitly versions the release schema and educational motion model, and records the source SHA, whether the checkout contained uncommitted changes, and SHA-256 hashes of the entry document, model and hosting configuration. A local build with `sourceDirty: true` does not represent the unchanged committed release.
+`dist/release.json` explicitly versions the release schema, educational motion model, content and experiment semantics, and records the source SHA, whether the checkout contained uncommitted changes, and SHA-256 hashes of the entry document, model and hosting configuration. A local build with `sourceDirty: true` does not represent the unchanged committed release.
 
 ## ILS v0.1
 
 Canonical ILS 0.1.0 packages are vendored with byte/integrity provenance. The manifest maps ten real exploration modes; the lesson adapter reuses twelve chapters and their existing explanations. `?mode=…&lang=en|tr` opens an authored mode; `?lesson=humanoid-systems` opens the learning path. Unknown `ils` payloads are ignored. Related links preserve conceptual continuity, not robot state. Shared assumptions, evidence and selected controls preserve the existing callbacks and reduced-motion boundaries. Geometry, joint rules, engineering content and kinematic motion remain owned by HEX.
+
+## Content and portfolio contract
+
+HEX belongs to ENG in the Physical AI layer of the [aserdargun.com learning system](https://aserdargun.com/applications/). The twelve chapters introduce concepts within ENG’s four-year spine; finishing them is a manual self-check, not completion of that curriculum or an engineering qualification. WFM/WML, ITL/PDT and EVL provide related conceptual paths, not runtime integrations.
+
+`src/data/content.ts` owns bilingual reference descriptions, source review dates and the ten inspection prompts. `lab.manifest.json` owns the shared related-learning links used by both the lesson panel and model notes. The portfolio link follows the selected language; ENG is explicitly labeled English. Keep `src/ils/experiments.json` synchronized with modes and inspection prompts; the ILS contract test checks this correspondence.
+
+Content and experiment semantics are versioned separately from `MOTION_VERSION`. Copy and observation-task updates do not change model geometry, physical assumptions or kinematic behavior. The ILS evidence kind `simulated` denotes authored kinematics here; it does not assert a physics simulation. Source review dates refer to the cited material, not hardware validation or a deployment date.

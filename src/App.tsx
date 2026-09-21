@@ -1,6 +1,6 @@
-import {LabControlButton} from '@aserdargun/lab-ui';
-import '@aserdargun/lab-ui/styles.css';
-import {manifest,initialRoute} from './ils/catalog';
+import { LabControlButton } from "@aserdargun/lab-ui";
+import "@aserdargun/lab-ui/styles.css";
+import { manifest, initialRoute } from "./ils/catalog";
 import {
   lazy,
   Suspense,
@@ -23,6 +23,8 @@ import {
 import {
   bodies,
   chapters,
+  curriculumContext,
+  portfolioUrl,
   joints,
   lessons,
   modes,
@@ -46,7 +48,7 @@ export default function App() {
     motionSample.current = value;
   }, []);
   const [lang, setLang] = useState<Lang>(() => {
-    if(route.locale) return route.locale;
+    if (route.locale) return route.locale;
     try {
       return localStorage.getItem("hex-lang") === "tr" ? "tr" : "en";
     } catch {
@@ -54,7 +56,13 @@ export default function App() {
     }
   });
   const [mode, setMode] = useState<Mode>(route.mode);
-  const [lesson, setLesson] = useState(route.mode === "joints" ? "knee" : route.mode === "behavior" ? "balance" : route.mode);
+  const [lesson, setLesson] = useState(
+    route.mode === "joints"
+      ? "knee"
+      : route.mode === "behavior"
+        ? "balance"
+        : route.mode,
+  );
   const [explode, setExplode] = useState(0);
   const [joint, setJoint] = useState("KNEE_L");
   const [angle, setAngle] = useState(0);
@@ -96,6 +104,25 @@ export default function App() {
   }, [playing]);
   useEffect(() => {
     document.documentElement.lang = lang;
+    document.title = t(
+      [
+        "HEX — Humanoid Engineering Explorer",
+        "HEX — İnsansı Robot Mühendisliği Gezgini",
+      ],
+      lang,
+    );
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        "content",
+        t(
+          [
+            "Explore humanoid structure, joints, sensing and control in ENG’s interactive companion. Kinematic teaching aids; no dynamics simulation.",
+            "ENG’nin etkileşimli eşlikçisinde insansı robot yapısını, eklemleri, ölçümü ve kontrolü keşfet. Kinematik eğitim örnekleri; dinamik simülasyonu yoktur.",
+          ],
+          lang,
+        ),
+      );
     try {
       localStorage.setItem("hex-lang", lang);
     } catch {
@@ -227,7 +254,15 @@ export default function App() {
           aria-label={t(["HEX home", "HEX ana sayfa"], lang)}
         >
           <strong>HEX</strong>
-          <span>Humanoid Engineering Explorer</span>
+          <span>
+            {t(
+              [
+                "Humanoid Engineering Explorer",
+                "İnsansı Robot Mühendisliği Gezgini",
+              ],
+              lang,
+            )}
+          </span>
         </a>
         <nav
           className="top-nav"
@@ -252,7 +287,15 @@ export default function App() {
           </button>
         </nav>
         <div className="header-right">
-          <a href="https://eng.aserdargun.com" target="_blank" rel="noreferrer">
+          <a
+            href="https://eng.aserdargun.com/#curriculum"
+            title={t(
+              ["ENG curriculum (English)", "ENG müfredatı (İngilizce)"],
+              lang,
+            )}
+            target="_blank"
+            rel="noreferrer"
+          >
             ENG
             <ArrowUpRight size={17} />
           </a>
@@ -303,7 +346,7 @@ export default function App() {
             <p>
               {t(["HUMAN FORM.", "İNSAN BİÇİMİ."], lang)}
               <br />
-              {t(["REAL ENGINEERING.", "GERÇEK MÜHENDİSLİK."], lang)}
+              {t(["EXPLORE ENGINEERING.", "MÜHENDİSLİĞİ KEŞFET."], lang)}
               <i />
             </p>
           </div>
@@ -436,7 +479,10 @@ export default function App() {
                 </label>
                 <p>{t(joints.find((j) => j.id === joint)!.axes, lang)}</p>
                 <div className="motion-input">
-                  <LabControlButton action={playing ? "pause" : "play"} capabilities={manifest.capabilities} locale={lang}
+                  <LabControlButton
+                    action={playing ? "pause" : "play"}
+                    capabilities={manifest.capabilities}
+                    locale={lang}
                     className="icon-button"
                     aria-label={t(
                       playing
@@ -740,7 +786,10 @@ export default function App() {
                 />
                 <span>{t(["Explode", "Parçala"], lang)}</span>
               </div>
-              <LabControlButton action="reset" capabilities={manifest.capabilities} locale={lang}
+              <LabControlButton
+                action="reset"
+                capabilities={manifest.capabilities}
+                locale={lang}
                 aria-label={t(["Reset view", "Görünümü sıfırla"], lang)}
                 className="reset-button"
                 onClick={() => {
@@ -812,8 +861,8 @@ export default function App() {
                   <p>
                     {t(
                       [
-                        "A guided journey through one connected body.",
-                        "Bağlı bir beden boyunca rehberli bir yolculuk.",
+                        "Twelve introductory chapters supporting ENG’s four-year curriculum; completion is a self-check, not an engineering qualification.",
+                        "ENG’nin dört yıllık müfredatını destekleyen on iki giriş bölümü; tamamlama bir öz kontroldür, mühendislik yeterliliği değildir.",
                       ],
                       lang,
                     )}
@@ -830,6 +879,22 @@ export default function App() {
                   <X size={20} />
                 </button>
               </div>
+              <p className="curriculum-context">
+                {t(curriculumContext, lang)}{" "}
+                <a
+                  href="https://eng.aserdargun.com/#curriculum"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t(
+                    [
+                      "ENG curriculum (English) ↗",
+                      "ENG müfredatı (İngilizce) ↗",
+                    ],
+                    lang,
+                  )}
+                </a>
+              </p>
               <ol>
                 {chapters.map((c, i) => (
                   <li key={i}>
@@ -874,15 +939,23 @@ export default function App() {
         <button onClick={openInfo}>
           {t(
             [
-              "An educational research platform.",
-              "Eğitsel bir araştırma platformu.",
+              "Kinematic learning model · Notes & sources",
+              "Kinematik öğrenme modeli · Notlar ve kaynaklar",
             ],
             lang,
           )}
           <Info size={13} />
         </button>
         <span className="footer-rule" />
-        <span>{t(["Mechanics → Intelligence", "Mekanik → Zekâ"], lang)}</span>
+        <a href={portfolioUrl(lang)} target="_blank" rel="noreferrer">
+          {t(
+            [
+              "aserdargun.com · Learning system ↗",
+              "aserdargun.com · Öğrenme sistemi ↗",
+            ],
+            lang,
+          )}
+        </a>
       </footer>
       <InfoDialog open={info} onClose={() => setInfo(false)} lang={lang} />
     </div>

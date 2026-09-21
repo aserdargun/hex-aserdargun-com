@@ -1,3 +1,6 @@
+export const CONTENT_VERSION = "1.1.0";
+export const EXPERIMENT_VERSION = "1.1.0";
+
 export type Lang = "en" | "tr";
 export type Mode =
   | "explore"
@@ -593,12 +596,12 @@ export const lessons: Record<string, Lesson> = {
   balance: {
     title: ["Lean. Sense. Recover.", "Eğil. Ölç. Toparlan."],
     summary: [
-      "A small lean changes inertial and contact signals. The teaching sequence connects those signals to an ankle/hip correction.",
-      "Küçük bir eğim atalet ve temas sinyallerini değiştirir. Eğitim dizisi bu sinyalleri bilek/kalça düzeltmesine bağlar.",
+      "In a real robot, leaning changes inertial and contact measurements. Here, an authored sequence illustrates an ankle/hip correction without generating sensor data.",
+      "Gerçek robotta eğilme, atalet ve temas ölçümlerini değiştirir. Burada hazırlanmış dizi, sensör verisi üretmeden ayak bileği/kalça düzeltmesini örnekler.",
     ],
     why: [
-      "The support polygon is the convex region spanned by the current contacts. Keeping projected mass inside it is only a static intuition; momentum, friction and control authority also matter.",
-      "Destek çokgeni, mevcut temasların oluşturduğu dışbükey bölgedir. İzdüşen kütleyi içeride tutmak yalnızca statik sezgidir; momentum, sürtünme ve kontrol kapasitesi de önemlidir.",
+      "The support polygon is the convex region spanned by the current contacts. Keeping the center-of-mass projection inside it is only a static intuition; momentum, friction and control authority also matter.",
+      "Destek çokgeni, mevcut temasların oluşturduğu dışbükey bölgedir. Kütle merkezi izdüşümünü içeride tutmak yalnızca statik sezgidir; momentum, sürtünme ve kontrol kapasitesi de önemlidir.",
     ],
     chain: [
       ["Small disturbance", "Küçük bozucu etki"],
@@ -775,7 +778,32 @@ lessons.data_harness = {
     "Yollar şematiktir. Veri yolu protokolü, bant genişliği veya iletişim gecikmesi belirtilmez.",
   ],
 };
-lessons.neck = lessons.perception;
+lessons.neck = {
+  ...lessons.shoulder,
+  title: ["Point the sensing head.", "Algılayıcı başı yönlendir."],
+  summary: [
+    "Two serial neck axes orient the head in yaw and pitch. Turning the head changes where the cameras point.",
+    "İki seri boyun ekseni başı sapma ve yunuslama yönlerinde döndürür. Başın dönmesi kameraların baktığı yönü değiştirir.",
+  ],
+  why: [
+    "Sensor placement and head orientation shape the available view. Neck actuation and visual perception have different roles; moving a camera does not identify an object.",
+    "Sensör yerleşimi ve baş yönelimi görüş alanını etkiler. Boyun tahriki ve görsel algı farklı görevlerdir; kamerayı hareket ettirmek nesneyi tanımaz.",
+  ],
+  chain: [
+    ["Torso", "Gövde"],
+    ["Neck yaw", "Boyun sapması"],
+    ["Neck pitch", "Boyun yunuslaması"],
+    ["Camera orientation", "Kamera yönelimi"],
+  ],
+  receives: ["Head orientation targets", "Baş yönelimi hedefleri"],
+  produces: ["Head rotation", "Başın dönmesi"],
+  observes: ["Neck joint encoders", "Boyun eklem enkoderleri"],
+  influences: ["Camera viewing direction", "Kamera bakış yönü"],
+  note: [
+    "No gaze controller or visual tracking runs in HEX.",
+    "HEX içinde bakış kontrolcüsü veya görsel takip çalışmaz.",
+  ],
+};
 lessons.bearings = {
   ...lessons.structure,
   title: ["Support the axis.", "Ekseni destekle."],
@@ -848,32 +876,173 @@ export const stages: Bi[] = [
   ["Compute", "Hesaplama"],
   ["The connected system", "Bağlı sistem"],
 ];
-export const sources = [
+export const sources: {
+  name: string;
+  title: Bi;
+  url: string;
+  detail: Bi;
+  checkedAt: string;
+}[] = [
   {
     name: "MIT · Underactuated Robotics",
-    title: "Highly-articulated legged robots",
+    title: ["Highly-articulated legged robots", "Çok eklemli bacaklı robotlar"],
     url: "https://underactuated.csail.mit.edu/humanoids.html",
-    detail: "Contact, center of pressure, momentum and balance.",
+    detail: [
+      "Contact, center of pressure, momentum and balance; a conceptual reference, not validation of HEX motion.",
+      "Temas, basınç merkezi, momentum ve denge; HEX hareketinin doğrulaması değil, kavramsal kaynaktır.",
+    ],
+    checkedAt: "2026-09-21",
   },
   {
     name: "maxon · Drive engineering",
-    title: "Gearheads for electric motors",
+    title: [
+      "Gearheads for electric motors",
+      "Elektrik motorları için redüktörler",
+    ],
     url: "https://www.maxongroup.com/en-us/drives-and-systems/gears",
-    detail: "Motor and reduction-stage relationships; planetary gearheads.",
+    detail: [
+      "Motor and reduction-stage relationships. Product specifications do not describe HEX components.",
+      "Motor ve redüktör ilişkileri. Ürün özellikleri HEX bileşenlerini tanımlamaz.",
+    ],
+    checkedAt: "2026-09-21",
   },
   {
-    name: "Analog Devices · Inertial sensing",
-    title: "ADIS16505 inertial measurement unit",
+    name: "Analog Devices · ADIS16505",
+    title: ["Inertial measurement unit", "Atalet ölçüm birimi"],
     url: "https://www.analog.com/en/products/adis16505.html",
-    detail: "Three-axis gyroscope and accelerometer measurement classes.",
+    detail: [
+      "An example of gyroscope and accelerometer measurement classes; this device is not specified as HEX hardware.",
+      "Jiroskop ve ivmeölçer ölçüm türlerine bir örnek; bu cihaz HEX donanımı olarak belirtilmemiştir.",
+    ],
+    checkedAt: "2026-09-21",
   },
   {
-    name: "Blender · glTF documentation",
-    title: "glTF 2.0 export",
-    url: "https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html",
-    detail: "Named nodes, custom properties and transform animations.",
+    name: "Khronos · Blender glTF",
+    title: [
+      "Blender glTF 2.0 importer and exporter",
+      "Blender glTF 2.0 içe ve dışa aktarıcısı",
+    ],
+    url: "https://github.com/KhronosGroup/glTF-Blender-IO",
+    detail: [
+      "Official exporter source and versioned documentation links; export validation checks file structure, not mechanical feasibility.",
+      "Resmî dışa aktarıcı kaynağı ve sürümlü belge bağlantıları; dışa aktarım doğrulaması mekanik uygulanabilirliği değil, dosya yapısını denetler.",
+    ],
+    checkedAt: "2026-09-21",
   },
 ];
+
+export const portfolioUrl = (lang: Lang) =>
+  `https://aserdargun.com/${lang === "tr" ? "tr/" : ""}applications/`;
+
+export const curriculumContext: Bi = [
+  "HEX is ENG’s interactive companion in the Physical AI layer of the aserdargun.com learning system. Inspect a component, explain its role, then return to the curriculum. Related applications run independently; these links do not transfer robot state.",
+  "HEX, aserdargun.com öğrenme sisteminin Fiziksel Yapay Zekâ katmanında ENG’nin etkileşimli eşlikçisidir. Bir bileşeni incele, görevini açıkla ve müfredata dön. İlgili uygulamalar bağımsız çalışır; bağlantılar robot durumu aktarmaz.",
+];
+
+// Local inspection prompts, never computed scores or robot decision inputs.
+export const investigations: Record<Mode, { action: Bi; observation: Bi }> = {
+  explore: {
+    action: [
+      "Move the exploded-view slider, then select a named component from the catalogue.",
+      "Ayrıştırma sürgüsünü hareket ettir, ardından katalogdan adlandırılmış bir bileşen seç.",
+    ],
+    observation: [
+      "Describe how its role connects to sensing, power or motion. Visible placement alone does not prove performance.",
+      "Görevinin ölçüm, güç veya hareketle ilişkisini açıkla. Görünür yerleşim tek başına performans kanıtlamaz.",
+    ],
+  },
+  structure: {
+    action: [
+      "Compare the torso and a leg using Body region; inspect a frame component.",
+      "Beden bölgesi ile gövdeyi ve bir bacağı karşılaştır; bir iskelet bileşenini incele.",
+    ],
+    observation: [
+      "Trace the proposed load path through links and bearings. No stresses or allowable loads are calculated.",
+      "Öngörülen yük yolunu bağlar ve rulmanlar üzerinden takip et. Gerilmeler veya izin verilen yükler hesaplanmaz.",
+    ],
+  },
+  joints: {
+    action: [
+      "Compare knee and shoulder axes. Change the illustrative angle in degrees and separate the selected joint.",
+      "Diz ve omuz eksenlerini karşılaştır. Derece cinsinden temsili açıyı değiştir ve seçili eklemi ayrıştır.",
+    ],
+    observation: [
+      "Identify the moving link and rotation axis. Slider limits are teaching ranges, not certified joint limits.",
+      "Hareket eden bağı ve dönme eksenini belirle. Sürgü sınırları eğitim aralıklarıdır; onaylı eklem sınırları değildir.",
+    ],
+  },
+  actuation: {
+    action: [
+      "Select an actuator and compare its placement with the transmission in the exploded view.",
+      "Bir eyleyici seç ve ayrıştırılmış görünümde yerleşimini aktarma bileşeniyle karşılaştır.",
+    ],
+    observation: [
+      "Explain the motor → reduction → output chain. Size and color do not establish torque or gear ratio.",
+      "Motor → redüktör → çıkış zincirini açıkla. Boyut ve renk, tork veya dişli oranını belirlemez.",
+    ],
+  },
+  sensors: {
+    action: [
+      "Select the camera, torso IMU, knee encoder and foot sensing in turn.",
+      "Sırayla kamerayı, gövde IMU’sunu, diz enkoderini ve ayak ölçümünü seç.",
+    ],
+    observation: [
+      "Distinguish what each sensor would measure from an estimated state. HEX supplies no sensor readings.",
+      "Her sensörün ölçebileceği büyüklüğü kestirilen durumdan ayır. HEX sensör okuması sağlamaz.",
+    ],
+  },
+  power: {
+    action: [
+      "Inspect the battery, distribution and DC conversion components; trace the orange routes.",
+      "Batarya, dağıtım ve DC dönüşümü bileşenlerini incele; turuncu yolları takip et.",
+    ],
+    observation: [
+      "Separate the drive branch from compute and sensing. Animated flow is not current, power or battery runtime data.",
+      "Sürücü kolunu hesaplama ve ölçüm kolundan ayır. Akış animasyonu akım, güç veya batarya çalışma süresi verisi değildir.",
+    ],
+  },
+  compute: {
+    action: [
+      "Compare main compute, realtime control and a motor drive using the component buttons.",
+      "Bileşen düğmeleriyle ana hesaplamayı, gerçek zamanlı kontrolü ve motor sürücüsünü karşılaştır.",
+    ],
+    observation: [
+      "Explain their different responsibilities. The diagram assigns no measured latency or control frequency.",
+      "Farklı sorumluluklarını açıkla. Şema ölçülmüş gecikme veya kontrol frekansı atamaz.",
+    ],
+  },
+  perception: {
+    action: [
+      "Step through the four perception stages and select the reach target.",
+      "Dört algı aşamasını sırayla incele ve uzanma hedefini seç.",
+    ],
+    observation: [
+      "Separate scripted labels from actual recognition. The target and obstacle are authored scene objects.",
+      "Önceden tanımlı etiketleri gerçek tanımadan ayır. Hedef ve engel, hazırlanmış sahne nesneleridir.",
+    ],
+  },
+  control: {
+    action: [
+      "Follow the conceptual loop, then open Physical AI architecture to inspect the full chain.",
+      "Kavramsal döngüyü takip et, ardından tüm zinciri incelemek için Fiziksel Yapay Zekâ mimarisini aç.",
+    ],
+    observation: [
+      "Explain where feedback would enter a real controller. HEX does not close a measured control loop.",
+      "Gerçek bir kontrolcüde geri beslemenin nereden gireceğini açıkla. HEX ölçüme dayalı kontrol döngüsü çalıştırmaz.",
+    ],
+  },
+  behavior: {
+    action: [
+      "Compare Stand, Lean & recover and Reach; use manual sequence progress to inspect a pose.",
+      "Dur, Eğil ve toparlan ile Uzan dizilerini karşılaştır; bir pozu incelemek için elle dizi ilerlemesini kullan.",
+    ],
+    observation: [
+      "Describe the authored joint coordination. COM/CoP markers do not measure balance and never drive the motion.",
+      "Hazırlanmış eklem eşgüdümünü açıkla. COM/CoP işaretleri dengeyi ölçmez ve hareketi yönlendirmez.",
+    ],
+  },
+};
+
 export const chapters: {
   title: Bi;
   question: Bi;

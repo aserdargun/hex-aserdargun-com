@@ -21,20 +21,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Explore the engineering behind embodied intelligence.",
-        "tr": "Bedensel zekânın ardındaki mühendisliği keşfet."
+        "en": "Describe how its role connects to sensing, power or motion. Visible placement alone does not prove performance.",
+        "tr": "Görevinin ölçüm, güç veya hareketle ilişkisini açıkla. Görünür yerleşim tek başına performans kanıtlamaz."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "A body. A connected system.",
-          "tr": "Bir beden. Bağlı bir sistem."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Explore the engineering behind embodied intelligence.",
-          "tr": "Bedensel zekânın ardındaki mühendisliği keşfet."
+          "en": "Move the exploded-view slider, then select a named component from the catalogue.",
+          "tr": "Ayrıştırma sürgüsünü hareket ettir, ardından katalogdan adlandırılmış bir bileşen seç."
         },
         "evidenceRefs": [
           "motion",
@@ -76,20 +76,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Follow the frame from the torso to the ground.",
-        "tr": "Gövdeden zemine taşıyıcı yapıyı takip et."
+        "en": "Trace the proposed load path through links and bearings. No stresses or allowable loads are calculated.",
+        "tr": "Öngörülen yük yolunu bağlar ve rulmanlar üzerinden takip et. Gerilmeler veya izin verilen yükler hesaplanmaz."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "Built to carry the load.",
-          "tr": "Yükü taşımak için."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Follow the frame from the torso to the ground.",
-          "tr": "Gövdeden zemine taşıyıcı yapıyı takip et."
+          "en": "Compare the torso and a leg using Body region; inspect a frame component.",
+          "tr": "Beden bölgesi ile gövdeyi ve bir bacağı karşılaştır; bir iskelet bileşenini incele."
         },
         "evidenceRefs": [
           "motion",
@@ -131,20 +131,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Separate a joint. Discover where movement begins.",
-        "tr": "Bir eklemi ayır. Hareketin nerede başladığını keşfet."
+        "en": "Identify the moving link and rotation axis. Slider limits are teaching ranges, not certified joint limits.",
+        "tr": "Hareket eden bağı ve dönme eksenini belirle. Sürgü sınırları eğitim aralıklarıdır; onaylı eklem sınırları değildir."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "Rigid links. Fluid motion.",
-          "tr": "Rijit bağlar. Akıcı hareket."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Separate a joint. Discover where movement begins.",
-          "tr": "Bir eklemi ayır. Hareketin nerede başladığını keşfet."
+          "en": "Compare knee and shoulder axes. Change the illustrative angle in degrees and separate the selected joint.",
+          "tr": "Diz ve omuz eksenlerini karşılaştır. Derece cinsinden temsili açıyı değiştir ve seçili eklemi ayrıştır."
         },
         "evidenceRefs": [
           "motion",
@@ -186,20 +186,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Every actuator is part of a mechanical chain.",
-        "tr": "Her eyleyici, mekanik bir zincirin parçasıdır."
+        "en": "Explain the motor → reduction → output chain. Size and color do not establish torque or gear ratio.",
+        "tr": "Motor → redüktör → çıkış zincirini açıkla. Boyut ve renk, tork veya dişli oranını belirlemez."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "Electricity becomes motion.",
-          "tr": "Elektrik harekete dönüşür."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Every actuator is part of a mechanical chain.",
-          "tr": "Her eyleyici, mekanik bir zincirin parçasıdır."
+          "en": "Select an actuator and compare its placement with the transmission in the exploded view.",
+          "tr": "Bir eyleyici seç ve ayrıştırılmış görünümde yerleşimini aktarma bileşeniyle karşılaştır."
         },
         "evidenceRefs": [
           "motion",
@@ -241,20 +241,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Discover how a robot observes itself and its surroundings.",
-        "tr": "Robotun kendisini ve çevresini nasıl gözlediğini keşfet."
+        "en": "Distinguish what each sensor would measure from an estimated state. HEX supplies no sensor readings.",
+        "tr": "Her sensörün ölçebileceği büyüklüğü kestirilen durumdan ayır. HEX sensör okuması sağlamaz."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "A body that can measure.",
-          "tr": "Ölçebilen bir beden."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Discover how a robot observes itself and its surroundings.",
-          "tr": "Robotun kendisini ve çevresini nasıl gözlediğini keşfet."
+          "en": "Select the camera, torso IMU, knee encoder and foot sensing in turn.",
+          "tr": "Sırayla kamerayı, gövde IMU’sunu, diz enkoderini ve ayak ölçümünü seç."
         },
         "evidenceRefs": [
           "motion",
@@ -296,20 +296,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Trace the path from the battery to the body.",
-        "tr": "Bataryadan bedene enerji yolunu takip et."
+        "en": "Separate the drive branch from compute and sensing. Animated flow is not current, power or battery runtime data.",
+        "tr": "Sürücü kolunu hesaplama ve ölçüm kolundan ayır. Akış animasyonu akım, güç veya batarya çalışma süresi verisi değildir."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "Every movement needs energy.",
-          "tr": "Her hareket enerji ister."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Trace the path from the battery to the body.",
-          "tr": "Bataryadan bedene enerji yolunu takip et."
+          "en": "Inspect the battery, distribution and DC conversion components; trace the orange routes.",
+          "tr": "Batarya, dağıtım ve DC dönüşümü bileşenlerini incele; turuncu yolları takip et."
         },
         "evidenceRefs": [
           "motion",
@@ -351,20 +351,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "From task reasoning to the motor’s current loop.",
-        "tr": "Görev akıl yürütmesinden motorun akım döngüsüne."
+        "en": "Explain their different responsibilities. The diagram assigns no measured latency or control frequency.",
+        "tr": "Farklı sorumluluklarını açıkla. Şema ölçülmüş gecikme veya kontrol frekansı atamaz."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "One body. Many timescales.",
-          "tr": "Bir beden. Farklı zaman ölçekleri."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "From task reasoning to the motor’s current loop.",
-          "tr": "Görev akıl yürütmesinden motorun akım döngüsüne."
+          "en": "Compare main compute, realtime control and a motor drive using the component buttons.",
+          "tr": "Bileşen düğmeleriyle ana hesaplamayı, gerçek zamanlı kontrolü ve motor sürücüsünü karşılaştır."
         },
         "evidenceRefs": [
           "motion",
@@ -406,20 +406,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Perception builds an estimate, with uncertainty.",
-        "tr": "Algı, belirsizlik içeren bir tahmin oluşturur."
+        "en": "Separate scripted labels from actual recognition. The target and obstacle are authored scene objects.",
+        "tr": "Önceden tanımlı etiketleri gerçek tanımadan ayır. Hedef ve engel, hazırlanmış sahne nesneleridir."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "From light to world state.",
-          "tr": "Işıktan dünya durumuna."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Perception builds an estimate, with uncertainty.",
-          "tr": "Algı, belirsizlik içeren bir tahmin oluşturur."
+          "en": "Step through the four perception stages and select the reach target.",
+          "tr": "Dört algı aşamasını sırayla incele ve uzanma hedefini seç."
         },
         "evidenceRefs": [
           "motion",
@@ -461,20 +461,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Sense. Estimate. Plan. Act. Measure again.",
-        "tr": "Algıla. Kestir. Planla. Harekete geç. Yeniden ölç."
+        "en": "Explain where feedback would enter a real controller. HEX does not close a measured control loop.",
+        "tr": "Gerçek bir kontrolcüde geri beslemenin nereden gireceğini açıkla. HEX ölçüme dayalı kontrol döngüsü çalıştırmaz."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "Motion is a conversation.",
-          "tr": "Hareket bir etkileşimdir."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Sense. Estimate. Plan. Act. Measure again.",
-          "tr": "Algıla. Kestir. Planla. Harekete geç. Yeniden ölç."
+          "en": "Follow the conceptual loop, then open Physical AI architecture to inspect the full chain.",
+          "tr": "Kavramsal döngüyü takip et, ardından tüm zinciri incelemek için Fiziksel Yapay Zekâ mimarisini aç."
         },
         "evidenceRefs": [
           "motion",
@@ -516,20 +516,20 @@
     ],
     "learningObjectives": [
       {
-        "en": "Connect sensing and control to an embodied action.",
-        "tr": "Ölçüm ve kontrolü bedensel bir eylemle ilişkilendir."
+        "en": "Describe the authored joint coordination. COM/CoP markers do not measure balance and never drive the motion.",
+        "tr": "Hazırlanmış eklem eşgüdümünü açıkla. COM/CoP işaretleri dengeyi ölçmez ve hareketi yönlendirmez."
       }
     ],
     "observations": [
       {
-        "id": "system",
+        "id": "local-inspection",
         "label": {
-          "en": "The whole system moves.",
-          "tr": "Bütün sistem hareket eder."
+          "en": "Try and observe",
+          "tr": "Dene ve gözlemle"
         },
         "explanation": {
-          "en": "Connect sensing and control to an embodied action.",
-          "tr": "Ölçüm ve kontrolü bedensel bir eylemle ilişkilendir."
+          "en": "Compare Stand, Lean & recover and Reach; use manual sequence progress to inspect a pose.",
+          "tr": "Dur, Eğil ve toparlan ile Uzan dizilerini karşılaştır; bir pozu incelemek için elle dizi ilerlemesini kullan."
         },
         "evidenceRefs": [
           "motion",

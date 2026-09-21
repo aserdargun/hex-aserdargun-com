@@ -12,8 +12,8 @@
     "tr": "Bir beden. Bağlı bir sistem."
   },
   "guidingQuestion": {
-    "en": "What systems are inside?",
-    "tr": "İçinde hangi sistemler var?"
+    "en": "How do body, joints, sensing, and control work together?",
+    "tr": "Gövde, eklemler, algılama ve kontrol birlikte nasıl çalışır?"
   },
   "concepts": [
     "concept:embodied-systems",
@@ -166,8 +166,8 @@
         "tr": "Kinematik hareket ve katmanlar"
       },
       "notes": {
-        "en": "Authored motions expose relationships without proving physical stability or performance. Rendered overlays remain observer outputs.",
-        "tr": "Kurgulanmış hareketler fiziksel kararlılık veya performans kanıtlamadan ilişkileri gösterir. Görsel katmanlar gözlem çıktısı olarak kalır."
+        "en": "Authored motions expose relationships without proving physical stability or performance. Rendered overlays remain observer outputs. The ILS “simulated” category here means authored kinematics only, not a physics solver.",
+        "tr": "Kurgulanmış hareketler fiziksel kararlılık veya performans kanıtlamadan ilişkileri gösterir. Görsel katmanlar gözlem çıktısı olarak kalır. Buradaki ILS “simüle” kategorisi yalnızca hazırlanmış kinematik hareketi ifade eder; fizik çözücüsü değildir."
       },
       "assumptionRefs": [
         "teaching-geometry",
@@ -198,26 +198,50 @@
       {
         "id": "eng",
         "label": {
-          "en": "Humanoid engineering · ENG",
-          "tr": "Humanoid mühendisliği · ENG"
+          "en": "ENG · Humanoid engineering curriculum (English)",
+          "tr": "ENG · İnsansı robot mühendisliği müfredatı (İngilizce)"
         },
-        "url": "https://eng.aserdargun.com/"
+        "url": "https://eng.aserdargun.com/#curriculum"
+      },
+      {
+        "id": "wfm",
+        "label": {
+          "en": "WFM · World representations",
+          "tr": "WFM · Dünya temsilleri"
+        },
+        "url": "https://wfm.aserdargun.com/"
+      },
+      {
+        "id": "itl",
+        "label": {
+          "en": "ITL · Digital twins",
+          "tr": "ITL · Dijital ikizler"
+        },
+        "url": "https://itl.aserdargun.com/"
+      },
+      {
+        "id": "evl",
+        "label": {
+          "en": "EVL · Evaluation and evidence",
+          "tr": "EVL · Değerlendirme ve kanıt"
+        },
+        "url": "https://evl.aserdargun.com/"
       }
     ],
     "labs": [
       {
         "id": "wml",
         "label": {
-          "en": "WML",
-          "tr": "WML"
+          "en": "WML · World-model experiments",
+          "tr": "WML · Dünya modeli deneyleri"
         },
         "url": "https://wml.aserdargun.com/"
       },
       {
         "id": "pdt",
         "label": {
-          "en": "PDT",
-          "tr": "PDT"
+          "en": "PDT · Pump twin exploration",
+          "tr": "PDT · Pompa ikizi keşfi"
         },
         "url": "https://pdt.aserdargun.com/"
       }

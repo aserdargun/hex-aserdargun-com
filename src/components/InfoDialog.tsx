@@ -1,6 +1,14 @@
+import { RelatedLearning } from "@aserdargun/lab-ui";
+import { manifest } from "../ils/catalog";
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, Download, X } from "lucide-react";
-import { sources, t, type Lang } from "../data/content";
+import {
+  sources,
+  curriculumContext,
+  portfolioUrl,
+  t,
+  type Lang,
+} from "../data/content";
 export default function InfoDialog({
   open,
   onClose,
@@ -100,8 +108,8 @@ export default function InfoDialog({
         <p className="muted">
           {t(
             [
-              "References support mechanisms, not fictional HEX specifications. Checked 8 September 2026.",
-              "Kaynaklar mekanizmaları destekler; kurgusal HEX özelliklerini değil. 8 Eylül 2026 tarihinde kontrol edildi.",
+              "References explain mechanisms and export tools. Manufacturer examples are not a HEX bill of materials. Each source has its own review date.",
+              "Kaynaklar mekanizmaları ve dışa aktarım araçlarını açıklar. Üretici örnekleri HEX malzeme listesi değildir. Her kaynağın inceleme tarihi ayrı gösterilir.",
             ],
             lang,
           )}
@@ -111,7 +119,17 @@ export default function InfoDialog({
             <a href={s.url} key={s.url} target="_blank" rel="noreferrer">
               <span>
                 <strong>{s.name}</strong>
-                <small>{s.title}</small>
+                <small>{t(s.title, lang)}</small>
+                <small>{t(s.detail, lang)}</small>
+                <small>
+                  {t(["Reviewed", "İncelendi"], lang)}:{" "}
+                  <time dateTime={s.checkedAt}>
+                    {new Intl.DateTimeFormat(
+                      lang === "tr" ? "tr-TR" : "en-GB",
+                      { dateStyle: "long", timeZone: "UTC" },
+                    ).format(new Date(s.checkedAt))}
+                  </time>
+                </small>
               </span>
               <ArrowUpRight size={17} />
             </a>
@@ -134,40 +152,27 @@ export default function InfoDialog({
             lang,
           )}
         </h3>
-        <div className="ecosystem-links">
-          {[
+        <p>{t(curriculumContext, lang)}</p>
+        <a
+          className="source-link"
+          href={portfolioUrl(lang)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t(
             [
-              "ENG",
-              "https://eng.aserdargun.com",
-              "Humanoid engineering",
-              "Humanoid mühendisliği",
+              "Explore the aserdargun.com learning system",
+              "aserdargun.com öğrenme sistemini keşfet",
             ],
-            [
-              "WFM",
-              "https://wfm.aserdargun.com",
-              "World models",
-              "Dünya modelleri",
-            ],
-            [
-              "ITL",
-              "https://itl.aserdargun.com",
-              "Digital twins",
-              "Dijital ikizler",
-            ],
-            [
-              "EVL",
-              "https://evl.aserdargun.com",
-              "Evaluation",
-              "Değerlendirme",
-            ],
-          ].map(([name, url, en, tr]) => (
-            <a key={name} href={url} target="_blank" rel="noreferrer">
-              <strong>{name}</strong>
-              <span>{lang === "en" ? en : tr}</span>
-              <ArrowUpRight size={14} />
-            </a>
-          ))}
-        </div>
+            lang,
+          )}
+          <ArrowUpRight size={14} />
+        </a>
+        <RelatedLearning
+          theory={manifest.related.theory}
+          labs={manifest.related.labs}
+          locale={lang}
+        />
       </div>
     </dialog>
   );

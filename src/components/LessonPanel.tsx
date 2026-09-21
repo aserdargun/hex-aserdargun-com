@@ -1,5 +1,5 @@
-import {LabShell} from '@aserdargun/lab-ui';
-import {manifest,experiments} from '../ils/catalog';
+import { LabShell } from "@aserdargun/lab-ui";
+import { manifest, experiments } from "../ils/catalog";
 import { useEffect, useRef } from "react";
 import ComponentBrowser from "./ComponentBrowser";
 import {
@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import {
   chapters,
+  investigations,
   lessons,
   modes,
   sources,
@@ -90,6 +91,15 @@ export default function LessonPanel({
             <code>{selected}</code>
           </div>
         )}
+        <p className="lesson-boundary">
+          {t(
+            [
+              "Conceptual system roles; no live sensor readings or controller execution.",
+              "Kavramsal sistem görevleri; canlı sensör okuması veya kontrolcü çalıştırması yoktur.",
+            ],
+            lang,
+          )}
+        </p>
         <ol
           className={`connection-chain ${isOverview ? "overview-chain" : ""}`}
           aria-label={t(["System connections", "Sistem bağlantıları"], lang)}
@@ -217,7 +227,19 @@ export default function LessonPanel({
             ))}
           </div>
         )}
-        <LabShell manifest={manifest} experiment={experiments.find(e=>e.id===mode)!} locale={lang} />
+        <section
+          className="investigation"
+          aria-label={t(["Try and observe", "Dene ve gözlemle"], lang)}
+        >
+          <h3>{t(["Try and observe", "Dene ve gözlemle"], lang)}</h3>
+          <p>{t(investigations[mode].action, lang)}</p>
+          <p className="muted">{t(investigations[mode].observation, lang)}</p>
+        </section>
+        <LabShell
+          manifest={manifest}
+          experiment={experiments.find((e) => e.id === mode)!}
+          locale={lang}
+        />
       </div>
       <div className="lesson-bottom">
         {chapter !== null ? (

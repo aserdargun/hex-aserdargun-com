@@ -1871,3 +1871,27 @@ svg {
     min-height: 40px;
   }
 }
+
+/* Keep observation tasks and curriculum context readable in both languages. */
+.investigation {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding-top: 12px;
+}
+.investigation p,
+.lesson-boundary,
+.curriculum-context {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.investigation .muted,
+.lesson-boundary {
+  color: var(--muted);
+}
+.curriculum-context a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.info-dialog .ils-related {
+  margin-top: 16px;
+}
