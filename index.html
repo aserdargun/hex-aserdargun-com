@@ -13,9 +13,49 @@
       content="HEX — Explore the mechanics, sensors, power and control inside a humanoid. An interactive engineering learning object."
     />
     <title>HEX - Humanoid Engineering Explorer</title>
+    <link rel="canonical" href="https://hex.aserdargun.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Humanoid Engineering Explorer" />
+    <meta property="og:title" content="Humanoid Engineering Explorer" />
+    <meta
+      property="og:description"
+      content="Explore humanoid structure, joints, actuation, sensors, and power/data paths through ENG’s interactive 3D learning object. Movements are kinematic teaching aids, with no asserted dynamics or hardware performance."
+    />
+    <meta property="og:url" content="https://hex.aserdargun.com/" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Humanoid Engineering Explorer" />
+    <meta
+      name="twitter:description"
+      content="Explore humanoid structure, joints, actuation, sensors, and power/data paths through ENG’s interactive 3D learning object. Movements are kinematic teaching aids, with no asserted dynamics or hardware performance."
+    />
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <main>
+        <h1>HEX — Humanoid Engineering Explorer</h1>
+        <p>
+          An interactive 3D learning object for humanoid engineering: how structure, joints,
+          actuation, sensing, power and compute fit together as one connected system. Interface
+          available in English and Turkish. Runs entirely in your browser.
+        </p>
+        <p>
+          <strong>Scope:</strong> the robot is Blender-authored teaching geometry. Movement is
+          kinematic teaching motion — there is no dynamics simulation, no inverse-kinematics
+          solver, no trained policy and no measured robot telemetry. Material families and
+          mechanisms are illustrative; no load limit, alloy grade, torque, ratio or controller
+          frequency is certified.
+        </p>
+        <h2>What it covers</h2>
+        <ul>
+          <li>Ten modes: explore, structure, joints, actuation, sensors, power, compute, perception, control and behavior.</li>
+          <li>Exploded views, joint axes, and COM/CoP overlays, explicitly marked as illustrative.</li>
+          <li>From matter to intelligence — a guided lesson over the same components.</li>
+          <li>The assumptions behind each view, and the references each lesson draws on.</li>
+        </ul>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
