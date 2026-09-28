@@ -849,6 +849,15 @@ export default function RobotScene(props: SceneProps) {
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       onCreated={({ gl }) => {
         gl.setClearColor("#f4f5f2", 0);
+        // The WebGL surface is not otherwise exposed to assistive technology;
+        // every part it draws is also reachable through the labelled controls.
+        gl.domElement.setAttribute("role", "img");
+        gl.domElement.setAttribute(
+          "aria-label",
+          props.lang === "tr"
+            ? "HEX etkileşimli 3B humanoid görünümü"
+            : "HEX interactive 3D humanoid view",
+        );
         setCanvas(gl.domElement);
       }}
     >

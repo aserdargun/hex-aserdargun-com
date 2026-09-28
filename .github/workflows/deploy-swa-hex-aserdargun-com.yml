@@ -30,7 +30,9 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
-      - name: Validate models, kinematics, types and production artifact
+      - name: Install browser for accessibility and fallback coverage
+        run: npx playwright install --with-deps chromium
+      - name: Validate models, kinematics, types, accessibility and production artifact
         run: npm run validate:codex
       - name: Deploy prebuilt static site
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
