@@ -32,12 +32,18 @@ const modes = [
 const locales = ["en", "tr"] as const;
 const wcagTags = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"];
 
+// The CI runner has no GPU and falls back to software rendering, so decoding the
+// humanoid GLB takes far longer than on a local machine. The 30s default was not
+// enough headroom and made this suite fail on timing alone. The assertion itself
+// is unchanged: the model must actually finish loading.
+const MODEL_LOAD_TIMEOUT = 120_000;
+
 async function open(page: Page, query: string) {
   await page.goto(`/${query}`);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.locator("span.sr-only[role='status']")).not.toHaveText(
     "Loading model",
-    { timeout: 30_000 },
+    { timeout: MODEL_LOAD_TIMEOUT },
   );
 }
 

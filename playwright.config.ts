@@ -7,7 +7,10 @@ export default defineConfig({
   testDir: "./e2e",
   fullyParallel: false,
   workers: 1,
-  timeout: 60_000,
+  // The mode scan walks all ten modes in one test. On the GPU-less CI runner each
+  // model decode runs on software rendering, so the per-test budget has to cover
+  // ten loads rather than one.
+  timeout: 15 * 60_000,
   expect: { timeout: 15_000 },
   reporter: "list",
   use: {
