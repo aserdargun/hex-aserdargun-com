@@ -830,15 +830,49 @@ function Loading({ lang }: { lang: Lang }) {
     </Html>
   );
 }
+/**
+ * WebGL context creation is the one failure an error boundary cannot see:
+ * react-three-fiber builds the renderer in its own mount effect, so the
+ * "Error creating WebGL context" throw leaves React's tree and the viewport
+ * would stay on "Loading model" forever. Probe the context where the browser
+ * creates it — before <Canvas> mounts — and report the failure from the render
+ * phase, which SceneBoundary does catch, so the documented fallback renders and
+ * is announced exactly as it is for a lost context.
+ */
+function webglContextUnavailable() {
+  try {
+    // The attribute set three.js asks for, and the same context names it
+    // tries, so the probe fails wherever the renderer itself would.
+    const attributes: WebGLContextAttributes = {
+      alpha: true,
+      antialias: true,
+      powerPreference: "high-performance",
+    };
+    const probe = document.createElement("canvas");
+    const gl =
+      probe.getContext("webgl2", attributes) ??
+      probe.getContext("webgl", attributes) ??
+      probe.getContext("experimental-webgl", attributes);
+    if (!gl) return true;
+    // Release the probe context immediately; browsers cap live contexts.
+    if (gl instanceof WebGLRenderingContext)
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
+    return false;
+  } catch {
+    return true;
+  }
+}
 export default function RobotScene(props: SceneProps) {
   const [contextLost, setContextLost] = useState(false);
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
+  const [contextCreationFailed] = useState(webglContextUnavailable);
   const loseContext = useCallback(() => setContextLost(true), []);
   useEffect(() => {
     if (!canvas) return;
     canvas.addEventListener("webglcontextlost", loseContext);
     return () => canvas.removeEventListener("webglcontextlost", loseContext);
   }, [canvas, loseContext]);
+  if (contextCreationFailed) throw new Error("WebGL context unavailable");
   if (contextLost) throw new Error("WebGL context lost");
   return (
     <Canvas

@@ -355,7 +355,14 @@ export default function App() {
           className="explorer"
           aria-labelledby={guide ? "learning-title" : "explorer-title"}
         >
-          <div className="explorer-content" inert={guide}>
+          <div
+            className="explorer-content"
+            inert={guide}
+            // The learning path is an opaque overlay that fully covers the
+            // explorer, so the covered heading must leave the accessibility
+            // tree with it: two visible level-1 headings is a broken outline.
+            aria-hidden={guide ? true : undefined}
+          >
             <div className="viewport-heading">
               <h1 id="explorer-title" tabIndex={-1}>
                 {t(current.title, lang)}

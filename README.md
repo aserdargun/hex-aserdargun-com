@@ -68,7 +68,7 @@ Animations are kinematic teaching aids. There is no dynamics simulation, trained
 
 `npm run validate:codex` checks the component catalogue against the exported GLB, runs motion/content/model tests, validates both GLBs, checks TypeScript, and verifies the production artifact. Pull requests run the same validation without deploying. After re-exporting geometry, run `npm run model:catalogue` to refresh the generated component registry.
 
-Playback pauses when the page is hidden, model notes or the learning path open, or reduced motion is enabled. Manual angle/progress controls remain available. Failed GLB requests and lost WebGL contexts show an explicit fallback; retry clears the failed model cache and recreates the scene. Lessons and component selection remain usable throughout.
+Playback pauses when the page is hidden, model notes or the learning path open, or reduced motion is enabled. Manual angle/progress controls remain available. Failed GLB requests, WebGL contexts that cannot be created, and lost WebGL contexts show an explicit fallback; retry clears the failed model cache and recreates the scene. Lessons and component selection remain usable throughout.
 
 `dist/release.json` explicitly versions the release schema, educational motion model, content and experiment semantics, and records the source SHA, whether the checkout contained uncommitted changes, and SHA-256 hashes of the entry document, model and hosting configuration. A local build with `sourceDirty: true` does not represent the unchanged committed release.
 

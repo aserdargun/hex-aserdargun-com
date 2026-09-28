@@ -10,11 +10,11 @@ import AxeBuilder from "@axe-core/playwright";
  * kinematic teaching motion and nothing here asserts a measurement, a dynamics
  * simulation or hardware performance.
  *
- * The `color-contrast` expectations below currently FAIL. That is deliberate:
- * the violations are pre-existing in `src/styles.css`, they are not suppressed
- * or excluded, and correcting them is a colour change to the application's
- * stylesheet rather than part of adding this coverage. See the report for the
- * exact selectors and measured ratios.
+ * The `color-contrast` expectations below cover pre-existing violations in
+ * `src/styles.css`. They are neither suppressed nor excluded: the accent and
+ * secondary text colours were darkened in the application stylesheet until
+ * every measured pair cleared WCAG AA, and the full A/AA scan is asserted for
+ * every mode, both locales and both viewports.
  */
 
 const modes = [
@@ -109,6 +109,54 @@ test("the documented WebGL fallback keeps lessons and component lists usable", a
     "true",
   );
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  const browser = page.locator(".component-browser");
+  await browser.locator("summary").click();
+  await expect(
+    browser.getByRole("combobox", { name: "Model component" }),
+  ).toBeVisible();
+  await browser
+    .getByRole("combobox", { name: "Model component" })
+    .selectOption({ index: 1 });
+  await expect(browser.getByRole("status")).toContainText("components in this view");
+  expect(await wcagViolations(page)).toEqual([]);
+});
+
+test("a WebGL context that cannot be created reaches the same fallback", async ({
+  page,
+}) => {
+  // Context *creation* is the one failure an error boundary cannot see, because
+  // react-three-fiber builds the renderer in its own mount effect. Fail every
+  // WebGL context before the app boots so the real path is exercised.
+  await page.addInitScript(() => {
+    const create = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (id, ...rest) {
+      if (typeof id === "string" && id.includes("webgl")) return null;
+      return create.call(this, id, ...rest);
+    } as typeof HTMLCanvasElement.prototype.getContext;
+  });
+  await open(page, "?lang=en");
+  const fallback = page.locator(".scene-fallback");
+  await expect(fallback).toBeVisible({ timeout: 30_000 });
+  await expect(fallback).toContainText("3D view is unavailable");
+  await expect(fallback.getByRole("button", { name: "Retry 3D" })).toBeEnabled();
+  await expect(fallback.getByRole("button", { name: "Reload page" })).toBeEnabled();
+  await expect(fallback.locator("img")).toHaveAttribute("alt", /.+/);
+  await expect(page.locator("span.sr-only[role='status']")).toContainText(
+    "3D unavailable; lessons remain accessible",
+  );
+  // Retrying cannot invent a context, and the fallback must survive the retry.
+  await fallback.getByRole("button", { name: "Retry 3D" }).click();
+  await expect(fallback).toBeVisible({ timeout: 30_000 });
+  await expect(page.locator("span.sr-only[role='status']")).toContainText(
+    "3D unavailable; lessons remain accessible",
+  );
+  // The keyboard-accessible alternative to 3D remains available.
+  const modeNav = page.getByRole("navigation", { name: "System modes" });
+  await modeNav.getByRole("button", { name: /Joints/ }).click();
+  await expect(modeNav.getByRole("button", { name: /Joints/ })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
   const browser = page.locator(".component-browser");
   await browser.locator("summary").click();
   await expect(
