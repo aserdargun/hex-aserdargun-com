@@ -8,7 +8,13 @@
   --ink: #20282d;
   --muted: #59636d;
   --line: #d3d8d8;
-  --accent: #d94d2e;
+  /* Warm red-orange accent. Hue and saturation are the original #d94d2e /
+     #cf4625; only lightness is reduced so accent text, the active rail row
+     and white button labels all clear WCAG AA 4.5:1 on their real backgrounds
+     (accent on --bg 4.65, white on accent 5.09, --accent-active on the rail
+     tint 4.66). Brand hue is unchanged. */
+  --accent: #c14429;
+  --accent-active: #b73e21;
   --mono: "IBM Plex Mono", monospace;
 }
 * {
@@ -170,14 +176,14 @@ svg {
 }
 .language-switch button {
   padding: 7px 2px;
-  color: #68717a;
+  color: var(--muted);
 }
 .language-switch button[aria-pressed="true"] {
   color: #20282d;
   font-weight: 600;
 }
 .language-switch span {
-  color: #68717a;
+  color: var(--muted);
 }
 .workspace {
   display: grid;
@@ -218,14 +224,14 @@ svg {
 .systems-rail nav button span {
   font-size: 14px;
   font-weight: 400;
-  color: #68717a;
+  color: var(--muted);
 }
 .systems-rail nav button.active {
   background: #fbe5dc;
-  color: #cf4625;
+  color: var(--accent-active);
 }
 .systems-rail nav button.active span {
-  color: #cf4625;
+  color: var(--accent-active);
   font-weight: 600;
 }
 .systems-rail nav button:hover {
@@ -323,7 +329,7 @@ svg {
 }
 .viewport-options label > span {
   font: 8px var(--mono);
-  color: #69747a;
+  color: var(--muted);
   letter-spacing: 1px;
 }
 .viewport-options select {
@@ -416,7 +422,7 @@ svg {
   right: 10px;
   font-size: 10px;
   letter-spacing: 0.5px;
-  color: #69757b;
+  color: var(--muted);
   pointer-events: none;
 }
 .lesson-container {
@@ -521,7 +527,8 @@ svg {
   border-radius: 2px;
 }
 .primary-button:not(:disabled):hover {
-  background: #bd3c21;
+  /* One lightness step below --accent, matching the original hover delta. */
+  background: #a5341d;
   color: white;
 }
 .text-button {
@@ -541,7 +548,7 @@ svg {
 }
 .selected-id > span {
   font: 8px var(--mono);
-  color: #66747a;
+  color: var(--muted);
   letter-spacing: 1px;
 }
 .selected-id code {
@@ -573,7 +580,7 @@ svg {
   margin-top: 22px;
   font-size: 11px;
   line-height: 1.6;
-  color: #677177;
+  color: var(--muted);
 }
 .model-note svg {
   margin-top: 2px;
@@ -652,7 +659,7 @@ svg {
 .joint-controls > small,
 .behavior-controls > small {
   display: block;
-  color: #6c7374;
+  color: var(--muted);
   font: 8px var(--mono);
   margin-top: 10px;
 }
@@ -801,7 +808,7 @@ svg {
 }
 .learning-header p:last-child {
   font-size: 16px;
-  color: #66717a;
+  color: var(--muted);
   margin-top: 10px;
 }
 .learning-path ol {
