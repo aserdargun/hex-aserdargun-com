@@ -16,7 +16,7 @@ const root = resolve("dist");
 copyFileSync("lab.manifest.json", resolve(root, "lab.manifest.json"));
 const html = readFileSync(resolve(root, "index.html"), "utf8");
 assert.match(html, /HEX/);
-for (const [, asset] of html.matchAll(/(?:src|href)="(\.[^\"]+)"/g)) {
+for (const [, asset] of html.matchAll(/(?:src|href)="(\.[^"]+)"/g)) {
   const file = resolve(root, asset);
   assert.ok(file.startsWith(root + sep), `Asset outside dist: ${asset}`);
   assert.ok(existsSync(file), `Missing built asset: ${asset}`);
