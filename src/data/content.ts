@@ -1,4 +1,4 @@
-export const CONTENT_VERSION = "1.1.0";
+export const CONTENT_VERSION = "1.2.0";
 export const EXPERIMENT_VERSION = "1.1.0";
 
 export type Lang = "en" | "tr";
@@ -882,6 +882,9 @@ export const sources: {
   url: string;
   detail: Bi;
   checkedAt: string;
+  // Which authored material this reference actually backs. Empty means the
+  // reference documents a tool or pipeline step, not a teaching claim.
+  covers: { lessons: string[]; chapters: string[] };
 }[] = [
   {
     name: "MIT · Underactuated Robotics",
@@ -892,6 +895,18 @@ export const sources: {
       "Temas, basınç merkezi, momentum ve denge; HEX hareketinin doğrulaması değil, kavramsal kaynaktır.",
     ],
     checkedAt: "2026-09-21",
+    covers: {
+      lessons: [
+        "ankle",
+        "foot",
+        "control",
+        "balance",
+        "reach",
+        "stand",
+        "behavior",
+      ],
+      chapters: ["balance", "control"],
+    },
   },
   {
     name: "maxon · Drive engineering",
@@ -905,6 +920,10 @@ export const sources: {
       "Motor ve redüktör ilişkileri. Ürün özellikleri HEX bileşenlerini tanımlamaz.",
     ],
     checkedAt: "2026-09-21",
+    covers: {
+      lessons: ["knee", "elbow", "actuation", "transmission", "joints"],
+      chapters: ["actuators", "transmissions"],
+    },
   },
   {
     name: "Analog Devices · ADIS16505",
@@ -915,6 +934,7 @@ export const sources: {
       "Jiroskop ve ivmeölçer ölçüm türlerine bir örnek; bu cihaz HEX donanımı olarak belirtilmemiştir.",
     ],
     checkedAt: "2026-09-21",
+    covers: { lessons: ["sensors", "imu"], chapters: ["sensors"] },
   },
   {
     name: "Khronos · Blender glTF",
@@ -928,8 +948,18 @@ export const sources: {
       "Resmî dışa aktarıcı kaynağı ve sürümlü belge bağlantıları; dışa aktarım doğrulaması mekanik uygulanabilirliği değil, dosya yapısını denetler.",
     ],
     checkedAt: "2026-09-21",
+    covers: { lessons: [], chapters: [] },
   },
 ];
+
+// The export boundary, kept out of a single source record so it is visible
+// wherever the model itself is inspected or downloaded.
+export const exportBoundary: Bi = [
+  "The exported .glb is checked as a file — structure, naming and metadata. It does not validate joint limits, clearances, material strength, manufacturability or robot behavior. Opening the model cannot establish any of them.",
+  "Dışa aktarılan .glb bir dosya olarak denetlenir — yapı, adlandırma ve üstveri. Eklem sınırlarını, açıklıkları, malzeme dayanımını, üretilebilirliği veya robot davranışını doğrulamaz. Modeli açmak bunların hiçbirini ortaya koyamaz.",
+];
+
+export const coverageFor = (sourceIndex: number) => sources[sourceIndex].covers;
 
 export const portfolioUrl = (lang: Lang) =>
   `https://aserdargun.com/${lang === "tr" ? "tr/" : ""}applications/`;
@@ -1043,49 +1073,115 @@ export const investigations: Record<Mode, { action: Bi; observation: Bi }> = {
   },
 };
 
+// ENG's published four-year spine, summarized here in both locales. The
+// authoritative wording is ENG's own English curriculum page; this is a
+// summary, not a quotation and not an ENG-authored mapping.
+export const spine: {
+  year: number;
+  discipline: Bi;
+  focus: Bi;
+}[] = [
+  {
+    year: 1,
+    discipline: ["Chemistry → materials", "Kimya → malzemeler"],
+    focus: [
+      "Cells, surfaces, polymers, metals, composites, fatigue, and a virtual human-scale joint.",
+      "Hücreler, yüzeyler, polimerler, metaller, kompozitler, yorulma ve sanal, insan ölçeğinde bir eklem.",
+    ],
+  },
+  {
+    year: 2,
+    discipline: ["Mechanics", "Mekanik"],
+    focus: [
+      "Actuators, transmissions, arms, hands, grasping and tool use in a workcell.",
+      "Eyleyiciler, aktarmalar, kollar, eller, kavrama ve bir çalışma hücresinde araç kullanımı.",
+    ],
+  },
+  {
+    year: 3,
+    discipline: ["Electrical", "Elektrik"],
+    focus: [
+      "Drives, battery management, sensing, real-time networks, balance control and fault injection.",
+      "Sürücüler, batarya yönetimi, ölçüm, gerçek zamanlı ağlar, denge kontrolü ve hata enjeksiyonu.",
+    ],
+  },
+  {
+    year: 4,
+    discipline: ["Computer science", "Bilgisayar bilimi"],
+    focus: [
+      "Whole-body control, robot learning, vision-language-action systems and trustworthy autonomy.",
+      "Tüm beden kontrolü, robot öğrenmesi, görüntü-dil-eylem sistemleri ve güvenilir özerklik.",
+    ],
+  },
+];
+export const spineContext: Bi = [
+  "The four-year spine is ENG’s published curriculum structure, summarized here. Chapter placement is HEX’s own suggested reading order, not an ENG requirement, and finishing a chapter is not completing a year.",
+  "Dört yıllık omurga ENG’in yayımlanmış müfredat yapısının özetidir. Bölüm yerleşimi HEX’in önerdiği okuma sırasıdır; ENG şartı değildir ve bir bölümü bitirmek bir yılı tamamlamak değildir.",
+];
+export const spineYear = (year: number) => spine.find((s) => s.year === year)!;
+
 export const chapters: {
+  id: string;
   title: Bi;
   question: Bi;
   mode: Mode;
   lesson: string;
+  year: number;
+  source?: number;
 }[] = [
   {
+    id: "overview",
     title: ["Meet the humanoid", "Humanoid ile tanış"],
     question: ["What systems are inside?", "İçinde hangi sistemler var?"],
     mode: "explore",
     lesson: "explore",
+    year: 1,
   },
   {
+    id: "structure",
     title: ["Structure", "Yapı"],
     question: ["What carries the load?", "Yükü ne taşır?"],
     mode: "structure",
     lesson: "structure",
+    year: 1,
   },
   {
+    id: "joints",
     title: ["Joints", "Eklemler"],
     question: ["How can rigid links move?", "Rijit bağlar nasıl hareket eder?"],
     mode: "joints",
     lesson: "knee",
+    year: 1,
   },
   {
+    id: "actuators",
     title: ["Actuators", "Eyleyiciler"],
     question: ["Where does motion come from?", "Hareket nereden gelir?"],
     mode: "actuation",
     lesson: "actuation",
+    year: 2,
+    source: 1,
   },
   {
+    id: "transmissions",
     title: ["Transmissions", "Aktarma"],
     question: ["Why use a reduction stage?", "Neden redüktör kullanılır?"],
     mode: "joints",
     lesson: "transmission",
+    year: 2,
+    source: 1,
   },
   {
+    id: "sensors",
     title: ["Sensors", "Sensörler"],
     question: ["How is the body measured?", "Beden nasıl ölçülür?"],
     mode: "sensors",
     lesson: "sensors",
+    year: 3,
+    source: 2,
   },
   {
+    id: "balance",
     title: ["Balance", "Denge"],
     question: [
       "How does feedback support stance?",
@@ -1093,20 +1189,27 @@ export const chapters: {
     ],
     mode: "behavior",
     lesson: "balance",
+    year: 3,
+    source: 0,
   },
   {
+    id: "power",
     title: ["Power", "Güç"],
     question: ["Where does energy go?", "Enerji nereye gider?"],
     mode: "power",
     lesson: "power",
+    year: 3,
   },
   {
+    id: "compute",
     title: ["Compute", "Hesaplama"],
     question: ["Which decisions happen where?", "Hangi karar nerede verilir?"],
     mode: "compute",
     lesson: "compute",
+    year: 3,
   },
   {
+    id: "perception",
     title: ["Perception", "Algı"],
     question: [
       "How is a world state estimated?",
@@ -1114,8 +1217,10 @@ export const chapters: {
     ],
     mode: "perception",
     lesson: "perception",
+    year: 4,
   },
   {
+    id: "control",
     title: ["Control", "Kontrol"],
     question: [
       "How does motion become feedback?",
@@ -1123,8 +1228,11 @@ export const chapters: {
     ],
     mode: "control",
     lesson: "control",
+    year: 4,
+    source: 0,
   },
   {
+    id: "physical-ai",
     title: ["Physical AI", "Fiziksel Yapay Zekâ"],
     question: [
       "How does intelligence become embodied?",
@@ -1132,5 +1240,33 @@ export const chapters: {
     ],
     mode: "control",
     lesson: "physical-ai",
+    year: 4,
   },
 ];
+
+export const chapterById = (id: string) => chapters.find((c) => c.id === id);
+
+// Coverage is computed, never hand-maintained: a lesson or chapter is attached
+// only where the content already records a source. Everything else stays
+// visibly uncovered.
+export interface Coverage {
+  total: number;
+  covered: number;
+  uncovered: number;
+}
+const ratio = (total: number, covered: number): Coverage => ({
+  total,
+  covered,
+  uncovered: total - covered,
+});
+export const lessonCoverage = ratio(
+  Object.keys(lessons).length,
+  Object.values(lessons).filter((lesson) => lesson.source !== undefined).length,
+);
+export const chapterCoverage = ratio(
+  chapters.length,
+  chapters.filter((chapter) => chapter.source !== undefined).length,
+);
+export const uncoveredLessons = Object.keys(lessons).filter(
+  (id) => lessons[id].source === undefined,
+);

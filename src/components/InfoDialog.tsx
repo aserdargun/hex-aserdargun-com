@@ -3,10 +3,18 @@ import { manifest } from "../ils/catalog";
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, Download, X } from "lucide-react";
 import {
+  chapters,
+  chapterCoverage,
+  exportBoundary,
+  lessonCoverage,
+  lessons,
+  spine,
+  spineContext,
   sources,
   curriculumContext,
   portfolioUrl,
   t,
+  uncoveredLessons,
   type Lang,
 } from "../data/content";
 export default function InfoDialog({
@@ -103,6 +111,12 @@ export default function InfoDialog({
               )}
             </dd>
           </div>
+          <div>
+            <dt>
+              {t(["Export & inspection", "Dışa aktarım ve inceleme"], lang)}
+            </dt>
+            <dd>{t(exportBoundary, lang)}</dd>
+          </div>
         </dl>
         <h3>{t(["Engineering references", "Mühendislik kaynakları"], lang)}</h3>
         <p className="muted">
@@ -135,6 +149,99 @@ export default function InfoDialog({
             </a>
           ))}
         </div>
+        <h3>
+          {t(
+            [
+              "What each source backs",
+              "Her kaynak neyi destekliyor",
+            ],
+            lang,
+          )}
+        </h3>
+        <p className="muted">
+          {t(
+            [
+              "Coverage is counted from the content, not asserted. A blank cell means no source backs that material yet — it is not evidence that the claim is unsound, and the teaching boundary text still applies.",
+              "Kapsam içerikten sayılır, iddia edilmez. Boş hücre, o malzemenin henüz kaynakla desteklenmediği anlamına gelir; iddianın temelsiz olduğu anlamına gelmez ve öğretim sınırı metni yine geçerlidir.",
+            ],
+            lang,
+          )}
+        </p>
+        <p className="coverage-counts">
+          <span>
+            {t(["Chapters", "Bölümler"], lang)}: {chapterCoverage.covered}/
+            {chapterCoverage.total} {t(["attached", "bağlı"], lang)}
+          </span>
+          <span>
+            {t(["Lessons", "Dersler"], lang)}: {lessonCoverage.covered}/
+            {lessonCoverage.total} {t(["attached", "bağlı"], lang)}
+          </span>
+        </p>
+        <div className="coverage-table" role="group" aria-label="Source coverage">
+          {sources.map((s) => (
+            <div className="coverage-source" key={s.url}>
+              <h4>
+                <a href={s.url} target="_blank" rel="noreferrer">
+                  {s.name}
+                  <ArrowUpRight size={13} />
+                </a>
+              </h4>
+              <p>
+                {s.covers.chapters.length
+                  ? s.covers.chapters
+                      .map((id) => {
+                        const chapter = chapters.find((c) => c.id === id);
+                        return chapter ? t(chapter.title, lang) : id;
+                      })
+                      .join(" · ")
+                  : t(
+                      [
+                        "Backs no chapter; documents the export tooling only.",
+                        "Hiçbir bölümü desteklemez; yalnızca dışa aktarım araçlarını belgeler.",
+                      ],
+                      lang,
+                    )}
+              </p>
+              <p className="coverage-lessons">
+                {t(["Lessons: ", "Dersler: "], lang)}
+                {s.covers.lessons.length
+                  ? s.covers.lessons
+                      .map((id) => t(lessons[id].title, lang))
+                      .join(" · ")
+                  : t(["none", "yok"], lang)}
+              </p>
+            </div>
+          ))}
+        </div>
+        <h4 className="coverage-subhead">
+          {t(
+            ["Not yet source-attached", "Henüz kaynağa bağlanmamış"],
+            lang,
+          )}
+        </h4>
+        <ul className="coverage-gaps">
+          {chapters
+            .filter((c) => c.source === undefined)
+            .map((c) => (
+              <li key={c.id}>
+                <span>{t(c.title, lang)}</span>
+                <small>
+                  {t(
+                    ["no source yet", "henüz kaynak yok"],
+                    lang,
+                  )}
+                </small>
+              </li>
+            ))}
+          {uncoveredLessons.map((id) => (
+            <li key={id}>
+              <span>{t(lessons[id].title, lang)}</span>
+              <small>
+                {t(["no source yet", "henüz kaynak yok"], lang)}
+              </small>
+            </li>
+          ))}
+        </ul>
         <a
           className="download-model"
           download
@@ -153,6 +260,25 @@ export default function InfoDialog({
           )}
         </h3>
         <p>{t(curriculumContext, lang)}</p>
+        <p className="muted">{t(spineContext, lang)}</p>
+        <ol className="spine-list">
+          {spine.map((s) => (
+            <li key={s.year}>
+              <span className="spine-year">Y{s.year}</span>
+              <span>
+                <strong>{t(s.discipline, lang)}</strong>
+                <small>{t(s.focus, lang)}</small>
+                <small className="spine-chapters">
+                  {t(["HEX chapters: ", "HEX bölümleri: "], lang)}
+                  {chapters
+                    .filter((c) => c.year === s.year)
+                    .map((c) => t(c.title, lang))
+                    .join(" · ")}
+                </small>
+              </span>
+            </li>
+          ))}
+        </ol>
         <a
           className="source-link"
           href={portfolioUrl(lang)}

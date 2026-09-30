@@ -28,6 +28,8 @@ import {
   joints,
   lessons,
   modes,
+  sources,
+  spineContext,
   stages,
   t,
   type Lang,
@@ -904,7 +906,7 @@ export default function App() {
               </p>
               <ol>
                 {chapters.map((c, i) => (
-                  <li key={i}>
+                  <li key={c.id}>
                     <button onClick={() => loadChapter(i)}>
                       <span className="chapter-number">
                         {String(i + 1).padStart(2, "0")}
@@ -912,12 +914,20 @@ export default function App() {
                       <span>
                         <strong>{t(c.title, lang)}</strong>
                         <small>{t(c.question, lang)}</small>
+                        <small className="chapter-meta">
+                          {t(["ENG year ", "ENG yılı "], lang)}
+                          {c.year} ·{" "}
+                          {c.source === undefined
+                            ? t(["no source yet", "henüz kaynak yok"], lang)
+                            : sources[c.source].name}
+                        </small>
                       </span>
                       <ArrowUpRight size={19} />
                     </button>
                   </li>
                 ))}
               </ol>
+              <p className="learning-note">{t(spineContext, lang)}</p>
             </div>
           )}
         </section>
