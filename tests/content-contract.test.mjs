@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import {
   chapterCoverage,
   chapters,
+  chapterStatement,
   exportBoundary,
   lessonCoverage,
   lessons,
@@ -96,9 +97,26 @@ test("Source coverage is legible, bilingual and never padded", () => {
   assert.equal(lessonCoverage.covered, lessonCoverage.total - uncoveredLessons.length);
 });
 test("Bilingual strings stay complete on new surfaces", () => {
-  const pairs = [spineContext, exportBoundary, ...spine.flatMap((s) => [s.discipline, s.focus])];
+  const pairs = [spineContext, exportBoundary, chapterStatement, ...spine.flatMap((s) => [s.discipline, s.focus])];
   for (const pair of pairs) {
     assert.equal(pair.length, 2);
     assert.ok(pair.every((text) => typeof text === "string" && text.trim()));
+  }
+});
+test("The guided path states the chapter count it actually ships", () => {
+  // The opening sentence is rendered directly under the "HEX / N CHAPTERS"
+  // label and directly above the chapter list. If the count is ever written
+  // into the prose by hand, these three numbers can drift apart and the page
+  // contradicts itself. Both locales must carry the real chapters.length.
+  for (const [lang, sentence] of [
+    ["en", chapterStatement[0]],
+    ["tr", chapterStatement[1]],
+  ]) {
+    const stated = sentence.match(/\d+/g) ?? [];
+    assert.deepEqual(
+      stated,
+      [String(chapters.length)],
+      `${lang} carries ${stated.length} count(s) but ${chapters.length} chapters are authored: "${sentence}"`,
+    );
   }
 });

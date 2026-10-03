@@ -23,6 +23,7 @@ import {
 import {
   bodies,
   chapters,
+  chapterStatement,
   curriculumContext,
   portfolioUrl,
   joints,
@@ -867,15 +868,7 @@ export default function App() {
                       lang,
                     )}
                   </h1>
-                  <p>
-                    {t(
-                      [
-                        "Twelve introductory chapters supporting ENG’s four-year curriculum; completion is a self-check, not an engineering qualification.",
-                        "ENG’nin dört yıllık müfredatını destekleyen on iki giriş bölümü; tamamlama bir öz kontroldür, mühendislik yeterliliği değildir.",
-                      ],
-                      lang,
-                    )}
-                  </p>
+                  <p>{t(chapterStatement, lang)}</p>
                 </div>
                 <button
                   className="icon-button"

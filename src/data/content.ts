@@ -1246,6 +1246,15 @@ export const chapters: {
 
 export const chapterById = (id: string) => chapters.find((c) => c.id === id);
 
+// The guided path's opening sentence, counted from the chapter list rather than
+// written out by hand. The prose sits directly under the "HEX / N CHAPTERS"
+// label and above the chapter list, so a hand-written number is a number that
+// can silently contradict both of them.
+export const chapterStatement: Bi = [
+  `${chapters.length} introductory chapters supporting ENG’s four-year curriculum; completion is a self-check, not an engineering qualification.`,
+  `ENG’nin dört yıllık müfredatını destekleyen ${chapters.length} giriş bölümü; tamamlama bir öz kontroldür, mühendislik yeterliliği değildir.`,
+];
+
 // Coverage is computed, never hand-maintained: a lesson or chapter is attached
 // only where the content already records a source. Everything else stays
 // visibly uncovered.

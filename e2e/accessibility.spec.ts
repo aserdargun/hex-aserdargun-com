@@ -83,6 +83,20 @@ test.describe("automated accessibility", () => {
     for (const locale of locales) {
       await open(page, `?lesson=humanoid-systems&lang=${locale}`);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+
+      // The header states the chapter count three ways: in the "HEX / N
+      // CHAPTERS" label, in the opening sentence, and in the number of chapters
+      // actually listed. They are rendered next to each other, so a hand-written
+      // count in any one of them is a page that contradicts itself.
+      const guide = page.locator(".learning-path");
+      const label = await guide.locator(".section-label").innerText();
+      const declared = label.match(/(\d+)/)?.[1];
+      expect(declared, `no count in "${label}"`).toBeTruthy();
+      await expect(guide.locator(".learning-header p").nth(1)).toContainText(
+        `${declared} `,
+      );
+      await expect(guide.locator("ol li")).toHaveCount(Number(declared));
+
       expect(await wcagViolations(page), `guide / ${locale}`).toEqual([]);
     }
   });
