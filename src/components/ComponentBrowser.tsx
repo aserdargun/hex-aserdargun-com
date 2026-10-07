@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import components from "../data/components.json";
+import { foldForSearch } from "../data/search";
 import { lessons, modes, t, type Lang, type Mode } from "../data/content";
 
 export default function ComponentBrowser({
@@ -20,7 +21,7 @@ export default function ComponentBrowser({
   const [query, setQuery] = useState("");
   const matches = useMemo(() => {
     const categories = modes.find((m) => m.id === mode)!.categories;
-    const needle = query.trim().toLocaleLowerCase(lang);
+    const needle = foldForSearch(query.trim());
     return components.filter((part) => {
       if (body !== "all" && part.region !== body) return false;
       if (mode === "joints") {
@@ -30,9 +31,9 @@ export default function ComponentBrowser({
         return false;
       return (
         !needle ||
-        `${part.name} ${t(lessons[part.lesson].title, lang)}`
-          .toLocaleLowerCase(lang)
-          .includes(needle)
+        foldForSearch(
+          `${part.name} ${t(lessons[part.lesson].title, lang)}`,
+        ).includes(needle)
       );
     });
   }, [mode, joint, body, query, lang]);
