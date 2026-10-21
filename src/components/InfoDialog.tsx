@@ -8,6 +8,7 @@ import {
   exportBoundary,
   lessonCoverage,
   lessons,
+  mechanicalModel,
   spine,
   spineContext,
   sources,
@@ -76,13 +77,7 @@ export default function InfoDialog({
           <div>
             <dt>{t(["Mechanical model", "Mekanik model"], lang)}</dt>
             <dd>
-              {t(
-                [
-                  "27 major rotational axes, simplified grippers, coaxial planetary cartridges, representative materials and harness routes. Gear teeth are schematic.",
-                  "27 ana dönme ekseni, sade tutucular, eş eksenli planet kartuşları, temsili malzemeler ve kablo yolları. Dişli dişleri şematiktir.",
-                ],
-                lang,
-              )}
+              {t(mechanicalModel, lang)}
             </dd>
           </div>
           <div>

@@ -961,6 +961,18 @@ export const exportBoundary: Bi = [
 
 export const coverageFor = (sourceIndex: number) => sources[sourceIndex].covers;
 
+/**
+ * What the model notes say the mechanical model is.
+ *
+ * The axis count in this sentence is a claim about the Blender-authored asset,
+ * not a round number, so it lives here where a test can read it and compare it
+ * with the pivots the .glb actually carries.
+ */
+export const mechanicalModel: Bi = [
+  "27 major rotational axes, simplified grippers, coaxial planetary cartridges, representative materials and harness routes. Gear teeth are schematic.",
+  "27 ana dönme ekseni, sade tutucular, eş eksenli planet kartuşları, temsili malzemeler ve kablo yolları. Dişli dişleri şematiktir.",
+];
+
 export const portfolioUrl = (lang: Lang) =>
   `https://aserdargun.com/${lang === "tr" ? "tr/" : ""}applications/`;
 
